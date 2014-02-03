@@ -18,11 +18,12 @@
 
 
 <title>Contact</title>
-		    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css" />
-		    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" />
-			<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" />
-			<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" />
-			<link rel="stylesheet" href="bootstrap/css/menubar.css" type="text/css" />
+
+		    <!-- link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
+		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
+			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" / -->
+			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" / -->
+			<link rel="stylesheet" href="inc/menubar.css" type="text/css" />
 			
 
 	<style type="text/css">
