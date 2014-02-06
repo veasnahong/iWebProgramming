@@ -17,7 +17,7 @@
 	<![endif]--> 
 
 
-<title>Contact</title>
+<title>MyShop</title>
 
 		    <!-- link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
 		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
@@ -43,13 +43,13 @@
 		<div id="container">
 
 			<div>
-				<h1  class="auto-style1" style="height: 20px">Welcome to Veasna's HomePage</h1>
+				<h1  class="auto-style1" style="height: 20px">My Company</h1>
 			</div>
 				
 				<? include 'inc/nav.php';?>
 
 		<div id="content">
-			<h4> CONTACT</h4>
+			<h4> My Shop</h4>
 		</div>
 	/div>	
 		

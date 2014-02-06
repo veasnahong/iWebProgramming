@@ -17,7 +17,7 @@
 	<![endif]--> 
 
 
-<title>Resume</title>
+<title>Gifts</title>
 
 		    <!-- link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
 		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
@@ -25,11 +25,10 @@
 			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" / -->
 			<link rel="stylesheet" href="inc/menubar.css" type="text/css" />
 
-
 	<style type="text/css">
 		.auto-style1 
 		{
-			padding: 30px 10px;
+			padding: 30px 20px;
 			margin-left:50px;
 			margin-right:50px;	
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -41,22 +40,22 @@
 	<body>
 			
 		<div id="container">
-		
+
 			<div>
-				<h1  class="auto-style1" style="height: 20px">Welcome to Veasna's HomePage</h1>
+				<h1  class="auto-style1" style="height: 20px">My Company</h1>
 			</div>
-			
+
 				<? include 'inc/nav.php';?>	
 
 		<div id="content">
-			<h4> RESUME </h4>
+			<h4> Gifts </h4>
 		</div>
-	/div>
-		
+	/div>	
+	
 	<div id="footer">
 		Designed and implemented by Veasna Hong. <br/>
 		<a href="mailto:veasnahong@gmail.com?Subject=Ordering%20Request">veasnahong@gmail.com </a>
 	</div>
-	
+			
 </body>
 </html>
