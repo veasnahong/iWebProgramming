@@ -17,18 +17,23 @@
 	<![endif]--> 
 
 
-<title>Gifts</title>
+<title>Products</title>
 
-		    <!-- link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
-		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
-			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" / -->
-			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" / -->
-			<link rel="stylesheet" href="inc/menubar.css" type="text/css" />
+			  <script src="bootstrap/js/bootstrap.js"></script>
+			  <script src="bootstrap/js/bootstrap.min.js"></script>
+		
+			<link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / >
+		 	<!--link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
+		 	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" / >
+		 	<link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" />
+
+
+
 
 	<style type="text/css">
 		.auto-style1 
 		{
-			padding: 30px 20px;
+			padding: 30px 10px;
 			margin-left:50px;
 			margin-right:50px;	
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -44,18 +49,30 @@
 			<div>
 				<h1  class="auto-style1" style="height: 20px">My Company</h1>
 			</div>
-
-				<? include 'inc/nav.php';?>	
+			
+			<? include 'inc/nav.php';?>
+					
 
 		<div id="content">
-			<h4> Gifts </h4>
+			<h4> HOME </h4>
+			
+			<ul class="nav-tabs">
+			  <li class="active"><a href="#">Home</a></li>
+			  <li><a href="#">Profile</a></li>
+			  <li><a href="#">Messages</a></li>
+			</ul>
+
+	
+	
+			
 		</div>
-	/div>	
+	</div>
 	
 	<div id="footer">
 		Designed and implemented by Veasna Hong. <br/>
 		<a href="mailto:veasnahong@gmail.com?Subject=Ordering%20Request">veasnahong@gmail.com </a>
 	</div>
-			
+	
+	
 </body>
 </html>

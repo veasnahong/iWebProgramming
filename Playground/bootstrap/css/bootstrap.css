@@ -8,66 +8,9 @@
  * Designed and built with all the love in the world by @mdo and @fat.
  */
  
-		#container
-		{
-			padding: 10px 0px;
-			margin-left:auto;
-			margin-right:auto;
-			width:100%;
-			min-width:700px;		
-			background-color:#F0FFF0;
-			color:#000000;
-			border:0px double #000000;
-		
-		}
-		#content
-		{
-			margin-left:50px;
-			margin-right:50px;
-			background-color:white;
-			color:black;
-			overflow:auto;
-			padding: 10px 20px;
-			height: 800px 	
-		}
-		#footer
-		{
-			background-color:#F0FFF0;
-			color:#000000;
-			font-size:.70em;
-			font-style:italic;
-			text-align:center;
-			height:auto;
-			padding-top:5px;
-			padding-bottom:5px;
-		}
-		h1 
-		{
-			background-color: 	#FFFFE0;
-			color:#000000; 
-			text-align:center;
-			text-shadow:   0 0 20px #fff,
-		                   0 0 30px #fff,
-		                   0 0 40px #fff,
-		                   0 0 50px #ff00de,
-		                   0 0 80px #ff00de,
-		                   0 0 90px #ff00de,
-		                   0 0 110px #ff00de,
-		                   0 0 160px #ff00de;	   
-		}
-		h4
-		 {
-		 	background-color:#ccaa66;
-			color:#ffffcc;
-			font-size:14px;
-			padding-left:10px;
-			padding-bottom:7px;
-			padding-top: 7px;		
-			border-bottom: 1px solid #e8d882;
-			margin-right:20px;	
-		}
+
 				
-/*!---------------------------	
+
 		
 		.clearfix {
 		  *zoom: 1;

@@ -1,5 +1,5 @@
 ﻿   
-	.animatedtabs{
+	.animatedMenu{
 	border-bottom: 10px ;
 	overflow: hidden;
 	width: 90%;
@@ -7,7 +7,7 @@
 	}
 	
 	
-	.animatedtabs ul
+	.animatedMenu ul
 	{
 	list-style-type: none;
 	height: 40px;
@@ -20,14 +20,14 @@
 
 	}
 	
-	.animatedtabs li
+	.animatedMenu li
 	{
 	float: left;
 	margin: 0;
 	padding: 0;
 	}
 	
-	.animatedtabs a
+	.animatedMenu a
 	{
 	float: left;
 	position: relative;
@@ -40,7 +40,7 @@
 	
 	}
 	
-	.animatedtabs a span
+	.animatedMenu a span
 	{
 	float: left;
 	position: relative;
@@ -52,20 +52,20 @@
 	}
 	
 	
-	.animatedtabs a span 
+	.animatedMenu a span 
 	{
 		float:none;
 		
 	}
 	
-	.animatedtabs .selected a
+	.animatedMenu .selected a
 	{
 	background-position: 0 -125px;
 	top: 0;
 	
 	}
 	
-	.animatedtabs .selected a span
+	.animatedMenu .selected a span
 	{
 	background-position: 100% -125px;
 	color:blue;
@@ -74,13 +74,13 @@
 	top: 0;
 	}
 	
-	.animatedtabs a:hover
+	.animatedMenu a:hover
 	{
 	background-position: 0% -125px;
 	top: 0;
 	}
 	
-	.animatedtabs a:hover span
+	.animatedMenu a:hover span
 	{
 	background-position: 100% -125px;
 	padding-bottom: 8px; /* 3) Bottom padding of selected tab. Should equal (1) PLUS (2) above */

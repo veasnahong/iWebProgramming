@@ -6,11 +6,12 @@
 			margin-right:auto;
 			width:100%;
 			min-width:700px;		
-			background-color:#F0FFF0;
+			background-color:#C0C0C0;
 			color:#000000;
 			border:0px double #000000;
 		
 		}
+
 		#content
 		{
 			margin-left:50px;
@@ -23,7 +24,7 @@
 		}
 		#footer
 		{
-			background-color:#F0FFF0;
+			background-color:#C0C0C0;
 			color:#000000;
 			font-size:.70em;
 			font-style:italic;
@@ -58,93 +59,241 @@
 			margin-right:20px;	
 		}
 		
-	
-	
-		.animatedtabs{
-		border-bottom: 10px ;
-		overflow: hidden;
-		width: 90%;
-		font-size: 14px; /*font of menu text*/
+		nav 
+		{    
+		  display: block;
+		  text-align: center;
+		  width: 100%;
+		  margin: 0;
+		  position: relative; 
+		}
+		nav ul 
+		{
+		  margin: 0;
+		  padding:0;
+		  list-style: none;
+		}
+		.nav a 
+		{
+		  display:block; 
+		  background: #111; 
+		  color: #fff; 
+		  text-decoration: none;
+		  padding: 0.8em 1.8em;
+		  text-transform: uppercase;
+		  font-size: 80%;
+		  letter-spacing: 2px;		 
+		  text-shadow: 0 -1px 0 #000;
+		  position: relative;
+		}
+		.nav
+		{  
+		  vertical-align: top; 
+		  display: inline-block;
+		  box-shadow: 
+		    1px -1px -1px 1px #000, 
+		    -1px 1px -1px 1px #fff, 
+		    0 0 6px 3px #fff;
+		  	sborder-radius:6px;
+		}
+		.nav li 
+		{
+		  position: relative;
+		}
+		.nav > li 
+		{ 
+		  float: left; 
+		  border-bottom: 4px #aaa solid; 
+		  margin-right: 1px; 
+		} 
+		.nav > li > a 
+		{ 
+		  margin-bottom: 1px;
+		  box-shadow: inset 0 2em .33em -0.5em #555; 
+		}
+		.nav > li:hover, 
+		.nav > li:hover > a 
+		{ 
+		  border-bottom-color: orange;
+		}
+		.nav li:hover > a 
+		{ 
+		  color:orange; 
+		}
+		.nav > li:first-child 
+		{ 
+		  border-radius: 4px 0 0 4px;
+		} 
+		.nav > li:first-child > a 
+		{ 
+		  border-radius: 4px 0 0 0;
+		}
+		.nav > li:last-child 
+		{ 
+		  border-radius: 0 0 4px 0; 
+		  margin-right: 0;
+		} 
+		.nav > li:last-child > a 
+		{ 
+		  border-radius: 0 4px 0 0;
+		}
+		.nav li li a 
+		{ 
+		  margin-top: 1px;
+		}
+		.nav li a:first-child:nth-last-child(2):before 
+		{ 
+		  content: " "; 
+		  position: absolute; 
+		  height: 0; 
+		  width: 0; 
+		  border: 5px solid transparent; 
+		  top: 50% ;
+		  right:5px;  
+		 }
+		
+		
+		/* submenu positioning*/
+		.nav ul 
+		{
+		  position: absolute;
+		  white-space: nowrap;
+		  border-bottom: 5px solid  orange;
+		  z-index: 1;
+		  left: -99999em;
+		}
+		.nav > li:hover > ul 
+		{
+		  left: auto;
+		  margin-top: 5px;
+		  min-width: 100%;
+		}
+		.nav > li li:hover > ul 
+		{ 
+		  left: 100%;
+		  margin-left: 1px;
+		  top: -1px;
+		}
+		/* arrow hover styling */
+		.nav > li > a:first-child:nth-last-child(2):before 
+		{ 
+		  border-top-color: #aaa; 
+		}
+		.nav > li:hover > a:first-child:nth-last-child(2):before 
+		{
+		  border: 5px solid transparent; 
+		  border-bottom-color: orange; 
+		  margin-top:-5px
+		}
+		.nav li li > a:first-child:nth-last-child(2):before 
+		{  
+		  border-left-color: #aaa; 
+		  margin-top: -5px
+		}
+		.nav li li:hover > a:first-child:nth-last-child(2):before 
+		{
+		  border: 5px solid transparent; 
+		  border-right-color: orange;
+		  right: 10px; 
 		}
 		
 		
-		.animatedtabs ul
-		{
-		list-style-type: none;
-		height: 40px;
-		margin: 0;
-		margin-left: 10px; /*offset of first tab relative to page left edge*/
-		padding: 0;
-		padding: 0px 5px;
-		margin-left:30px;
+		
+		
+		
+		
+		
+		
+		
+		
+	#wrap	
+	{
+		width: 100%; /* Spans the width of the page */
+		height: 32px; 
+		margin: 0; /* Ensures there is no space between sides of the screen and the menu */
+		z-index: 99; /* Makes sure that your menu remains on top of other page elements */
+		position: relative; 
+		background-color: #366b82;		
+		margin-left:50px;
 		margin-right:50px;
-	
-		}
+	}
+	.selected a
+	{
+		background-color:silver;
+		color: #F3EC1D;
+		top: 0;
 		
-		.animatedtabs li
-		{
-		float: left;
+	}	
+	.navbar	
+	{
+		height: 30px;
+        padding: 0;
 		margin: 0;
+		position: absolute; /* Ensures that the menu doesnâ€™t affect other elements */
+		border-right: 1px solid #54879d; 
+	}
+	.navbar li 	
+	{
+		height: auto;
+		width: 150px;  /* Each menu item is 150px wide */
+		float: left;  /* This lines up the menu items horizontally */
+		text-align: center;  /* All text is placed in the center of the box */
+		list-style: none;  /* Removes the default styling (bullets) for the list */
+		font: normal 14px Arial, Verdana, Helvetica;  
 		padding: 0;
-		}
-		
-		.animatedtabs a
-		{
-		float: left;
-		position: relative;
-		top: 5px; /* 1) Number of pixels to protrude up for selected tab. Should equal (3) MINUS (2) below */
-		background: url(media/tab-blue-left.gif) no-repeat left top;
 		margin: 0;
-		margin-right: 3px; /*Spacing between each tab*/
-		padding: 0 0 0 9px;
-		text-decoration: none;
-		
-		}
-		
-		.animatedtabs a span
-		{
-		float: left;
-		position: relative;
+		background-color: #366b82;
+    }
+    .navbar a	
+    {							
+		padding: 8px 0;  /* Adds a padding on the top and bottom so the text appears centered vertically */
+		border-left: 1px solid #54879d; /* Creates a border in a slightly lighter shade of blue than the background.  Combined with the right border, this creates a nice effect. */
+		border-right: 1px solid #1f5065; /* Creates a border in a slightly darker shade of blue than the background.  Combined with the left border, this creates a nice effect. */
+		text-decoration: none;  /* Removes the default hyperlink styling. */
+		color: white; /* Text color is white */
 		display: block;
-		background: url(media/tab-blue-right.gif) no-repeat right top;
-		padding: 5px 14px 3px 5px; /* 2) Padding within each tab. The 3rd value, or 3px, should equal (1) MINUS (3) */
-		font-weight: bold;
-		color: black;
-		}
+	}
+	.navbar li:hover, a:hover 
+	{
+		background-color: #54879d;
+		
+	} 
+	.navbar li ul 	
+	{
+		display: none;  /* Hides the drop-down menu */
+		height: auto;									
+		margin: 0; /* Aligns drop-down box underneath the menu item */
+		padding: 0; /* Aligns drop-down box underneath the menu item */			
+	}				
+
+	.navbar li:hover ul 	
+	{
+        display: block; /* Displays the drop-down box when the menu item is hovered over */
+    }
+    .navbar li ul li 
+    {
+    	background-color: #54879d;
+    } 
+    .navbar li ul li a 	
+    {
+		border-left: 1px solid #1f5065; 
+		border-right: 1px solid #1f5065; 
+		border-top: 1px solid #74a3b7; 
+		border-bottom: 1px solid #1f5065; 
+	}				
+	.navbar li ul li a:hover	
+	{
+	background-color: #366b82;
+	}
+	
+	
+	
 		
 		
-		.animatedtabs a span 
-		{
-			float:none;
-			
-		}
 		
-		.animatedtabs .selected a
-		{
-		background-position: 0 -125px;
-		top: 0;
 		
-		}
-		
-		.animatedtabs .selected a span
-		{
-		background-position: 100% -125px;
-		color:blue;
-		/* background:silver;    /*select tab Background color*/
-		padding-bottom: 8px; /*Bottom padding of selected tab. Should equal (1) PLUS (2) above */
-		top: 0;
-		}
-		
-		.animatedtabs a:hover
-		{
-		background-position: 0% -125px;
-		top: 0;
-		}
-		
-		.animatedtabs a:hover span
-		{
-		background-position: 100% -125px;
-		padding-bottom: 8px; /* 3) Bottom padding of selected tab. Should equal (1) PLUS (2) above */
-		top: 0;
-		}
-		
+	
+
+	
+	
+	

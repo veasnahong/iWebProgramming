@@ -23,7 +23,7 @@
 		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
 			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" / -->
 			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" / -->
-			<link rel="stylesheet" href="inc/menubar.css" type="text/css" />
+			
 
 
 	<style type="text/css">
@@ -51,7 +51,7 @@
 		<div id="content">
 			<h4> Shops & Deals </h4>
 		</div>
-	/div>
+
 		
 	<div id="footer">
 		Designed and implemented by Veasna Hong. <br/>
