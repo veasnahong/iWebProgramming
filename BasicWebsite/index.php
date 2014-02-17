@@ -26,10 +26,6 @@
     <? include 'inc/nav.php';?>	 <!-- Navigation Menu Bar-->
     		    <ul class="nav navbar-nav">
 		    	
-		    			    	
-		    						<li class="contact-menu" ><a href="contact.php">Contact Us </a></li>
-									<li class="links-menu" ><a href="links.php">Links </a></li>
-									<li class="social-menu" ><a href="social.php">0 </a></li>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
