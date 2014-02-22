@@ -34,9 +34,18 @@
   <body>
     <div class="navbar-wrapper">
       <div class="container">
-
-        <? include 'inc/nav.php';?>	
-
+      	<div class="page-header">
+      		
+			<form class="navbar-form navbar-right" role="search">
+			  <div class="form-group">
+			    <input type="text" class="form-control" placeholder="Search">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+  			<h1>Welcome to my store <small>Subtext for header</small></h1>
+		</div>
+ 
+		 <? include 'inc/nav.php';?>	
 
     <!-- Carousel
     ================================================== -->
@@ -49,11 +58,11 @@
       </ol>
       <div class="carousel-inner">
         <div class="item active">
-          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" alt="First slide">
+          <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:New Arrival" alt="New Arrival">
           <div class="container">
             <div class="carousel-caption">
               <h1>Production</h1>
-              <p>Laptop, Tablet, SmartPhpne<code>file://</code> What do you have in mind? </p>
+              <p>Laptop, Tablet, SmartPhpne, Accessories. What do you have in mind? </p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>
           </div>
@@ -110,6 +119,8 @@
 		$(function(){
 			$(".navbar-brand").addClass("active");
 		})
+		$('.dropdown-toggle').dropdown()
+
 	</script>
   </body>
 </html>

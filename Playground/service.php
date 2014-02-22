@@ -30,8 +30,16 @@
   <body>
     <div class="navbar-wrapper">
       <div class="container">
-
-        <? include 'inc/nav.php';?>	
+      	<div class="page-header">
+			<form class="navbar-form navbar-right" role="search">
+			  <div class="form-group">
+			    <input type="text" class="form-control" placeholder="Search">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+  			<h1>Service <small> 1(800)123-456</small></h1>
+		</div>
+        <? include 'inc/nav.php';?>	</br></br></br></br></br></br>
  <div class="container">
 
     <!-- Carousel
@@ -95,6 +103,7 @@
 		$(function(){
 			$(".service-menu").addClass("active");
 		})
+		$('.dropdown-toggle').dropdown()
 	</script>
   </body>
 </html>

@@ -1,60 +1,78 @@
-﻿<!--VeasnaHong's Personal Page -->
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="bootstrap/docs/assets/ico/favicon.ico">
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <title>My Store Welcome</title>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-	<meta charset="utf-8"/>
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
-	<!-- Everyone gets the default stylesheet -->
-	<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Anyone using IE7 and above gets the IE styles too -->
-	<!--[if gte IE 7]>
-	    <link rel="stylesheet" type="text/css" href="/css/ie-overrides.css" />
-	<![endif]--> 
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
-<title>Gifts</title>
-
-		    <!-- link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css"/ -->
-		    <!--link rel="stylesheet" href="bootstrap/css/bootstrap.css" type="text/css" / -->
-			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.css" type="text/css" / -->
-			<!--link rel="stylesheet" href="bootstrap/css/bootstrap-responsive.min.css" type="text/css" / -->
-	
-	<style type="text/css">
-		.auto-style1 
-		{
-			padding: 30px 20px;
-			margin-left:50px;
-			margin-right:50px;	
-			font-family: Verdana, Geneva, Tahoma, sans-serif;
-			color:black;
-		}
-	</style>
-
-</head>
-	<body>
-			
-		<div id="container">
-
-			<div>
-				<h1  class="auto-style1" style="height: 20px">My Company</h1>
-			</div>
-
-				<? include 'inc/nav.php';?>	
-
-		<div id="content">
-			<h4> Store </h4>
+    <!-- Custom styles for this template -->
+    <link href="bootstrap/docs/examples/carousel/carousel.css" rel="stylesheet">
+  </head>
+<!-- NAVBAR
+================================================== -->
+  <body>
+    <div class="navbar-wrapper">
+      <div class="container">
+      	<div class="page-header">
+			<form class="navbar-form navbar-right" role="search">
+			  <div class="form-group">
+			    <input type="text" class="form-control" placeholder="Search">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
+  			<h1>Store <small>Find location near you</small></h1>
 		</div>
-	
-	
-	<div id="footer">
-		Designed and implemented by Veasna Hong. <br/>
-		<a href="mailto:veasnahong@gmail.com?Subject=Ordering%20Request">veasnahong@gmail.com </a>
-	</div>
-			
-</body>
+        <? include 'inc/nav.php';?></br></br></br></br></br></br>
+        
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+	      <div class="jumbotron"></br></br>
+	        <h1>Today is Clearance</h1>
+	        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+	        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+	      </div>	
+
+
+
+
+      <!-- FOOTER -->
+      <footer>
+         <!--p class="pull-right"><a href="#">Back to top</a></p-->
+        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bootstrap/docs/assets/js/docs.min.js"></script>
+    
+    <script type="text/javascript">
+	$(function(){
+		$(".stores-menu").addClass("active");
+	})
+	$('.dropdown-toggle').dropdown()
+	</script>
+  </body>
 </html>
