@@ -142,7 +142,10 @@
       <footer>
          <!--p class="pull-right"><a href="#">Back to top</a></p-->
          <li class="divider"></li>
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+         <p>&middot;<a href="#">Contact</a> &middot;<a href="#">Carrer</a> 
+         	&middot;<a href="#">Location</a> &middot;<a href="#">Carrer</a>
+         </p>
+         <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->
