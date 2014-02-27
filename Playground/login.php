@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,6 +42,7 @@
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
   			<h1>Login <small></small></h1>
+
 		</div>
 		
    		<div class="navbar navbar-default">

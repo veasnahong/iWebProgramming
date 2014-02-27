@@ -42,7 +42,7 @@
 			  </div>
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
-  			<h1>Welcome to my store <small>Subtext for header</small></h1>
+  			<h1>Welcome to my store </h1>
 		</div>
  
 		 <? include 'inc/nav.php';?>	
@@ -61,7 +61,7 @@
           <img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:New Arrival" alt="New Arrival">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Production</h1>
+              <h1>New Arrival</h1>
               <p>Laptop, Tablet, SmartPhpne, Accessories. What do you have in mind? </p>
               <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
             </div>

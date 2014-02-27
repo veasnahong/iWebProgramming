@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -41,8 +42,9 @@
 			  <button type="submit" class="btn btn-default">Submit</button>
 			</form>
   			<h1>Login <small></small></h1>
+
 		</div>
-		 
+		
    		<div class="navbar navbar-default">
           <div class="container">
             <div class="navbar-header">
@@ -76,9 +78,8 @@
 						<li class="dropdown">
 			              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
 			              <ul class="dropdown-menu">
-			                <li><a href="/Playground/Profile/login.php">Sign in</a></li>
-			                <? include 'Profile/login.php';?>
-			                <li><a href="#">Create an Account</a></li> 
+			                <li><a href="login.php">Sign in</a></li>
+			                <li><a href="createAccount.php">Create an Account</a></li> 
 			                <li class="divider"></li>
 			                <li><a href="#">Logout</a></li>
 			              </ul>
