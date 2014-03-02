@@ -14,8 +14,8 @@
 		break;
 	default:
 		//print_r('adsfa');
-		$model = Users::Get();
+		$model = ProductKeywords::Get();
 		
 		if($action == null) $action = 'index';
-		include __DIR__ . "/../Views/Users/$action.php";
+		include __DIR__ . "/../Views/Product_Keywords/$action.php";
 	}

@@ -14,8 +14,8 @@
 		break;
 	default:
 		//print_r('adsfa');
-		$model = Users::Get();
+		$model = OrderItems::Get();
 		
 		if($action == null) $action = 'index';
-		include __DIR__ . "/../Views/Users/$action.php";
+		include __DIR__ . "/../Views/Order_Items/$action.php";
 	}
