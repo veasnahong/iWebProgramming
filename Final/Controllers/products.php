@@ -3,19 +3,29 @@
 	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
 	
-	@$action = $_REQUEST['action'];
+	@$view = $action = $_REQUEST['action'];
+	@$product = $_REQUEST['product'];
 	
-	switch ($action){
-	case 'create':
+	switch ($action)
+	{
+		case 'create':
 		break;
-	case 'update':
+		case 'update':
 		break;
-	case 'delete':
+		case 'delete':
 		break;
-	default:
-		//print_r('adsfa');
+		default:
 		$model = Products::Get();
-		
-		if($action == null) $action = 'index';
-		include __DIR__ . "/../Views/Products/$action.php";
+		if($view == null) $view = 'index';
+	}
+	
+	switch ($product) 
+	{
+		case 'plain':
+		include __DIR__ . "/../Views/Users/$view.php";	
+		break;
+		default:
+		$view = __DIR__ . "/../Views/Products/$view.php";	
+		include __DIR__ . "/../Views/Shared/_Layout.php";
+		break;
 	}
