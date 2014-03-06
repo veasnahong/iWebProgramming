@@ -6,6 +6,8 @@
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
 	
+	
+	
 	switch ($action)
 	{
 		case 'create':
@@ -27,5 +29,5 @@
 		default:
 		$view = __DIR__ . "/../Views/Users/$view.php";	
 		include __DIR__ . "/../Views/Shared/_Layout.php";
-		break;
+
 	}

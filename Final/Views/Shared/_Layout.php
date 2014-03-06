@@ -72,8 +72,14 @@
 		$(function(){
 			$(".navbar-brand").addClass("active");
 		})
-		$('.dropdown-toggle').dropdown()
-
+		$('.dropdown-toggle').dropdown() 
+		})
 	</script>
+ 	<?
+     if(function_exists("JavaScripts"))
+     {
+     	JavaScripts();
+     }
+    ?>
   </body>
 </html>

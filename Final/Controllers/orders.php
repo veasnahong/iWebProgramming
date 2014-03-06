@@ -4,18 +4,28 @@
 	include_once __DIR__ . '/../inc/allModels.php';
 	
 	@$action = $_REQUEST['action'];
+	@$orders = $_REQUEST['orders'];
 	
-	switch ($action){
-	case 'create':
+	switch ($action)
+	{
+		case 'create':
 		break;
-	case 'update':
+		case 'update':
 		break;
-	case 'delete':
+		case 'delete':
 		break;
-	default:
-		//print_r('adsfa');
+		default:
 		$model = Orders::Get();
-		
-		if($action == null) $action = 'index';
-		include __DIR__ . "/../Views/Orders/$action.php";
+		if($view == null) $view = 'index';
+	}
+	
+	switch ($format) 
+	{
+		case 'plain':
+		include __DIR__ . "/../Views/Orders/$view.php";	
+		break;
+		default:
+		$view = __DIR__ . "/../Views/Orders/$view.php";	
+		include __DIR__ . "/../Views/Shared/_Layout.php";
+
 	}
