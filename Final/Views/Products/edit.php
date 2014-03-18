@@ -1,21 +1,26 @@
 		
 	<form action="?action=save" method="post">
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
-		<label for="FirstName">First Name:</label>
-		<input type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" />
+		
+		<label for="Name">Supplier ID:</label>
+		<input type="text" name="Suplier_id" id="Suplier_id" value="<?=$model['Suplier_id']?>" />
 		<br />
-		<label for="LastName">Last Name:</label>
-		<input type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" />
+		<label for="Name">Name:</label>
+		<input type="text" name="Name" id="Name" value="<?=$model['Name']?>" />
 		<br />
-		<label for="Password">Password:</label>
-		<input type="password" name="Password" id="Password" value="<?=$model['Password']?>" />
+		<label for="LastName">Price:</label>
+		<input type="text" name="Price" id="Price" value="<?=$model['Price']?>" />
 		<br />
-		<label for="fbid">fbid:</label>
-		<input type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" />
+		<label>Picture_URL:</label>
+		<input type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" />
 		<br />
-		<label for="UserType">User Type:</label>
-		<input type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" />
+		<label>Description:</label>
+		<input type="text" name="Description" id="Description" value="<?=$model['Description']?>" />
 		<br />
+		<label>Catergory Keyword:</label>
+		<input type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" />
+		<br />
+	
 		<input type="submit" value="Save" />
 	</form>
 

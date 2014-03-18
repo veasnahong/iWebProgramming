@@ -1,22 +1,32 @@
-<?php
-include_once __DIR__ . '/../inc/functions.php';
-include_once __DIR__ . '/../inc/allModels.php';
-
-@$view = $action = $_REQUEST['action'];
-@$format = $_REQUEST['format'];
-
-
+	<?php
+	include_once __DIR__ . '/../inc/functions.php';
+	include_once __DIR__ . '/../inc/allModels.php';
+	
+	@$view = $action = $_REQUEST['action'];
+	@$format = $_REQUEST['format'];
+	
+	
 	switch ($action)
 	{
 		case 'new':
 			$view = 'edit';
-			break;
+		break;
 		case 'edit':
+			$model = Users::Get($_REQUEST['id']);
 			break;
 		case 'save':
 			// TODO: Validate
-			Users::Create($_REQUEST);
-			$view = 'edit';
+			if(!$errors = Users::Save($_REQUEST))
+			{
+				header("Location: ?");
+				die();
+			}
+			else
+			{
+				print_r($errors);
+				$model = $_REQUEST;
+				$view = 'edit';
+			}
 			break;
 		case 'delete':
 			break;
@@ -25,8 +35,8 @@ include_once __DIR__ . '/../inc/allModels.php';
 			if($view == null) $view = 'index';
 	}
 	
-	switch ($format) 
-	{
+	switch ($format)
+	 {
 		case 'plain':
 			include __DIR__ . "/../Views/Users/$view.php";	
 			break;
@@ -35,4 +45,3 @@ include_once __DIR__ . '/../inc/allModels.php';
 			include __DIR__ . "/../Views/Shared/_Layout.php";
 			break;
 	}
-
