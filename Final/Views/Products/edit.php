@@ -1,5 +1,5 @@
 		
-	<form action="?action=save" method="post">
+<!--	<form action="?action=save" method="post">
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
 		
 		<label for="Name">Supplier ID:</label>
@@ -22,75 +22,71 @@
 		<br />
 	
 		<input type="submit" value="Save" />
-	</form>
+</form> -->
 
 
 
 	
-	<!--<form class="form-horizontal" action="?action=save" method="post" id="register-form">
+	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
 		<fieldset>
-			<legend>Register</legend>
+			<legend>Insert and Update Products</legend>
 			
 			<input type="hidden" name="id" value="<?=$model['id']?>" />
 			
 			<div class="form-group">
-				<label class="col-md-2 control-label" for="first">First Name</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>"class="form-control input-md" />
-            	</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="last">Last Name</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" class="form-control input-md"/>
-            	</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="username">Username</label>
-				<div class="col-md-4">
-					<input type="text" name="Username" id="Username" value="<?=$model['Username']?>" class="form-control input-md" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="password">Password</label>
-				<div class="col-md-4">
-					<input type="password" name="Password" id="Password" value="<?=$model['Password']?>"class="form-control input-md"/>
-				</div>
-			</div>
-			
-			<!--<div class="form-group">
-				<label class="col-md-2 control-label" for="password2">Repeat Password</label>
-				<div class="col-md-4"><input id="RepeatPassword" name="RepeatPassword" type="password" placeholder="Repeat Password" class="form-control input-md register-password-field"></div>
-			</div>-->
-			
-	<!--		<div class="form-group">
-				<label class="col-md-2 control-label" for="FacebookID">Facebook ID</label>
-				<div class="col-md-4">
-					<input type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" class="form-control input-md" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Select User Type</label>
+				<label class="col-md-2 control-label">Supplier ID</label>
 		     	<div class="col-md-4">
-		     		
-			    	<select class="form-control"class="col-md-4" input id="UserType" name="UserType" type="text" value="<?=$model['UserType']?>">
-					      <option>6</option>
-						  <option>7</option>
-						  <option>8</option>
-						  <option>9</option>
-					
-						 <!-- <option>Admin</option>
-						  <option>User</option>
-						  <option>Employee</option>
-						  <option>Customer</option>
-						  <option>Supplier</option>
-		     </select> -->
-<!--	       		</div> 
+			    	<select class="form-control"class="col-md-4" input id="Suplier_id" name="Suplier_id" type="text" value="<?=$model['Suplier_id']?>">
+					      <option>1</option>
+						  <option>2</option>
+						  <option>3</option>
+						  <option>4</option>
+					</select> 
+	       		</div> 
 		    </div>
+		    
+			<div class="form-group">
+				<label class="col-md-2 control-label">Name</label>
+           	   	<div class="col-md-4">
+					<input type="text" name="Name" id="Name" value="<?=$model['Name']?>"class="form-control input-md" />
+            	</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-2 control-label">Price</label>
+           	   	<div class="col-md-4">
+					<input type="text" name="Price" id="Price" value="<?=$model['Price']?>" class="form-control input-md"/>
+            	</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-2 control-label">Picture URL</label>
+				<div class="col-md-4">
+					<input type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" class="form-control input-md" />
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-2 control-label">Description</label>
+				<div class="col-md-4">
+					<input type="text" name="Description" id="Description" value="<?=$model['Description']?>"class="form-control input-md"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label class="col-md-2 control-label">Catergory_Keyword_id</label>
+		     	<div class="col-md-4">
+			    	<select class="form-control"class="col-md-4" input id="Catergory_Keyword_id" name="Catergory_Keyword_id" type="text" value="<?=$model['Catergory_Keyword_id']?>">
+					      <option>17</option>
+						  <option>18</option>
+						  <option>19</option>
+						  <option>20</option>
+						  <option>21</option>
+						  <option>22</option>
+					</select> 
+	       		</div> 
+		    </div>
+		    
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="singlebutton">Click Submit </label>
 				<div class="col-md-2">
@@ -99,10 +95,10 @@
 			</div>
 			
 		</fieldset>
-	</form>
-</br>
-	<pre>
+	</form></br>
+	
+	<!--<pre>
 		<? print_r($_GET); ?>
 		<? print_r($_POST); ?>
-	</pre>
+	</pre> -->
 	

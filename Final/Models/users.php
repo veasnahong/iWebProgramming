@@ -41,8 +41,8 @@
 			if (isset($row['id'])) 
 			{
 				$sql = "INSERT INTO 2014Spring_Users
-				(FirstName, LastName, Password, fbid, UserType)
-				VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
+				(FirstName, LastName, Username, Password, fbid, UserType)
+				VALUES ('$row[FirstName]', '$row[LastName]','$row[Username]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
 				
 				// echo $sql;
 				// $sql = "Update 2014Spring_Users
@@ -60,7 +60,7 @@
 				// echo $sql;
 				
 				$sql = "Update 2014Spring_Users
-				Set FirstName='$row[FirstName]', LastName='$row[LastName]',
+				Set FirstName='$row[FirstName]', LastName='$row[LastName]', Username ='$row[Username]',
 				Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
 				WHERE id = $row[id]";
 					

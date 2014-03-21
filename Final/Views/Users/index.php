@@ -10,25 +10,25 @@
 				<tr>
 					<th>FirstName</th>
 					<th>LastName</th>
+					<th>Username</th>
 					<th>Password</th>
 					<th>fbid</th>
 					<th>UserType</th>
+					<th>Edit</th>
 				</tr>
 			</thead>
 			<tbody>
-			
-			<? foreach ($model as $row): ?>
-				<tr>
-					<td><?=$row['FirstName']?></td>
-					<td><?=$row['LastName']?></td>
-					<td><?=$row['Password']?></td>
-					<td><?=$row['fbid']?></td>
-					<td><?=$row['UserType_Name']?></td>
-					<td>
-					<a href="?action=edit&id=<?=$row['id']?>">Edit</a>
-					</td>
-				</tr>
-			<? endforeach; ?>
+				<? foreach ($model as $row): ?>
+					<tr>
+						<td><?=$row['FirstName']?></td>
+						<td><?=$row['LastName']?></td>
+						<td><?=$row['Username']?></td>
+						<td><?=$row['Password']?></td>
+						<td><?=$row['fbid']?></td>
+						<td><?=$row['UserType_Name']?></td>
+						<td><a href="?action=edit&id=<?=$row['id']?>">Edit</a></td>
+					</tr>
+				<? endforeach; ?>
 			</tbody>
 		</table>
 		

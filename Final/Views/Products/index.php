@@ -14,6 +14,7 @@
 				<th>Description</th>
 				<th>Picture_Url</th>
 				<th>Product Categories</th>
+				<th>Edit</th>
 			</tr>
 		</thead>
 		
@@ -26,6 +27,7 @@
 					<td><?=$row['Description']?></td>
 					<td><?=$row['Picture_Url']?></td>
 					<td><?=$row['Products_Catergories']?></td>
+					<td><a href="?action=edit&id=<?=$row['id']?>">Edit</a></td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>

@@ -1,5 +1,5 @@
 		
-	<form action="?action=save" method="post">
+<!--	<form action="?action=save" method="post">
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
 		<label for="FirstName">First Name:</label>
 		<input type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" />
@@ -17,12 +17,12 @@
 		<input type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" />
 		<br />
 		<input type="submit" value="Save" />
-	</form>
+	</form> -->
 
 
 
 	
-	<!--<form class="form-horizontal" action="?action=save" method="post" id="register-form">
+	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
 		<fieldset>
 			<legend>Register</legend>
 			
@@ -47,7 +47,7 @@
 				<div class="col-md-4">
 					<input type="text" name="Username" id="Username" value="<?=$model['Username']?>" class="form-control input-md" />
 				</div>
-			</div>
+		</div>
 			
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="password">Password</label>
@@ -61,7 +61,7 @@
 				<div class="col-md-4"><input id="RepeatPassword" name="RepeatPassword" type="password" placeholder="Repeat Password" class="form-control input-md register-password-field"></div>
 			</div>-->
 			
-	<!--		<div class="form-group">
+			<div class="form-group">
 				<label class="col-md-2 control-label" for="FacebookID">Facebook ID</label>
 				<div class="col-md-4">
 					<input type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" class="form-control input-md" />
@@ -82,9 +82,9 @@
 						  <option>User</option>
 						  <option>Employee</option>
 						  <option>Customer</option>
-						  <option>Supplier</option>
-		     </select> -->
-<!--	       		</div> 
+						  <option>Supplier</option>-->
+		     </select> 
+	       	</div> 
 		    </div>
 			<div class="form-group">
 				<label class="col-md-2 control-label" for="singlebutton">Click Submit </label>
@@ -96,8 +96,9 @@
 		</fieldset>
 	</form>
 </br>
-	<pre>
+
+<!--<pre>
 		<? print_r($_GET); ?>
 		<? print_r($_POST); ?>
-	</pre>
+	</pre> -->
 	
