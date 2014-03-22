@@ -3,19 +3,29 @@
 	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
 	
-	@$action = $_REQUEST['action'];
+	@$view = $action = $_REQUEST['action'];
+	@$keyword = $_REQUEST['keyword'];
 	
-	switch ($action){
-	case 'create':
+	switch ($action)
+	{
+		case 'create':
 		break;
-	case 'update':
+		case 'update':
 		break;
-	case 'delete':
+		case 'delete':
 		break;
-	default:
-		//print_r('adsfa');
+		default:
 		$model = Keywords::Get();
-		
-		if($action == null) $action = 'index';
-		include __DIR__ . "/../Views/Keywords/$action.php";
+		if($view == null) $view = 'index';
+	}
+	
+	switch ($keyword) 
+	{
+		case 'plain':
+		include __DIR__ . "/../Views/Keywords/$view.php";	
+		break;
+		default:
+		$view = __DIR__ . "/../Views/Keywords/$view.php";	
+		include __DIR__ . "/../Views/Shared/_Layout.php";
+		break;
 	}

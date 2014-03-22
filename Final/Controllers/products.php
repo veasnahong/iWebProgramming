@@ -6,26 +6,43 @@
 	@$view = $action = $_REQUEST['action'];
 	@$product = $_REQUEST['product'];
 	
+	
 	switch ($action)
 	{
-		case 'create':
+		case 'new':
+			$view = 'edit';
 		break;
-		case 'update':
-		break;
+		case 'edit':
+			$model = Products::Get($_REQUEST['id']);
+			break;
+		case 'save':
+			// TODO: Validate
+			if(!$errors = Products::Save($_REQUEST))
+			{
+				header("Location: ?");
+				die();
+			}
+			else
+			{
+				print_r($errors);
+				$model = $_REQUEST;
+				$view = 'edit';
+			}
+			break;
 		case 'delete':
-		break;
-		default:
-		$model = Products::Get();
-		if($view == null) $view = 'index';
+			break;
+			default:
+			$model = Products::Get();
+			if($view == null) $view = 'index';
 	}
 	
-	switch ($product) 
-	{
+	switch ($product)
+	 {
 		case 'plain':
-		include __DIR__ . "/../Views/Users/$view.php";	
-		break;
-		default:
-		$view = __DIR__ . "/../Views/Products/$view.php";	
-		include __DIR__ . "/../Views/Shared/_Layout.php";
-		break;
+			include __DIR__ . "/../Views/Products/$view.php";	
+			break;
+			default:
+			$view = __DIR__ . "/../Views/Products/$view.php";	
+			include __DIR__ . "/../Views/Shared/_Layout.php";
+			break;
 	}

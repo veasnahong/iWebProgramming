@@ -41,16 +41,16 @@
 		   
 		<div class="container">
 			
-      		<? include $view; ?>	
-      		
-      		
-		</div><!-- /.container -->
-   
-
+      		<? include $view; ?><br/>	
+  
       <!-- FOOTER -->
       <footer>
-        <!--p class="pull-right"><a href="#">Back to top</a></p-->
-        <p>&copy; 2014 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+		<ul class="nav nav-pills">
+			 <li><a href="#">Contact</a></li>
+		  	 <li><a href="#">Carrer</a></li>
+		  	 <li><a href="#">About</a></li>
+			 <li><a href="#">Store Location</a></li>
+		</ul>
       </footer>
 
     </div><!-- /.container -->

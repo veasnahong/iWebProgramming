@@ -7,6 +7,8 @@
 		<thead>
 			<tr>
 				<th>ID</th>
+				<th>Username</th>
+				<th>Address Type</th>
 				<th>Addresses</th>
 				<th>City</th>
 				<th>State</th>
@@ -19,6 +21,8 @@
 			<? foreach ($model as $row): ?>
 				<tr>
 					<td><?=$row['id']?></td>
+					<td><?=$row['UsersID_Name']?></td>
+					<td><?=$row['AddressType']?></td>
 					<td><?=$row['Addresses']?></td>
 					<td><?=$row['City']?></td>
 					<td><?=$row['State']?></td>

@@ -15,7 +15,8 @@
 		                <span class="icon-bar"></span>
 		                <span class="icon-bar"></span>
 		              </button>
-		              <a class="navbar-brand" href="index.php"><span class="glyphicon glyphicon-home"></span></a>
+		              <a class="navbar-brand" href="../Controllers/home.php"><span class="glyphicon glyphicon-home"></span></a>
+		             <!-- <a class="navbar-brand" href="../Controllers/store.php"></a> -->
 		              <!--a class="navbar-brand" href="./">Home</a-->
 		            </div>
 			            <div class="navbar-collapse collapse">
@@ -34,7 +35,25 @@
 							<li class="<?=$value['class']?>" ><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
 							<? } ?>
 				   			</ul>
-				   			
+				   		 <ul class="nav navbar-nav navbar-right"> 
+							<li class="dropdown">
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
+				              <ul class="dropdown-menu">
+				                <li><a href="../Controllers/addresses.php">Addresses</a></li>
+				                <li><a href="../Controllers/contactMethods.php">ContactMethods</a></li> 
+				                <li><a href="../Controllers/keywords.php">Keywords</a></li>
+				                <li><a href="../Controllers/order_items.php">OrderItems</a></li>
+				                <li><a href="../Controllers/orders.php">Orders</a></li>
+				                <li><a href="../Controllers/product_keywords.php">ProductKeywords</a></li>
+				                <li><a href="../Controllers/products.php">Products</a></li>
+				                <li><a href="../Controllers/supliers.php">Suppliers</a></li>
+				                <li><a href="../Controllers/users.php">Users</a></li>
+				                
+				                <li class="divider"></li>
+				                <li><a href="#">Logout</a></li>
+				              </ul>
+				            </li>
+			           	</ul>	
 				          <ul class="nav navbar-nav navbar-right"> 
 							<li class="dropdown">
 				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
