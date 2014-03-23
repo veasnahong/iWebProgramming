@@ -22,7 +22,7 @@
 				<tr>
 					<td><?=$row['id']?></td>
 					<td><?=$row['UsersID_Name']?></td>
-					<td><?=$row['AddressType']?></td>
+					<td><?=$row['Address_Type']?></td>
 					<td><?=$row['Addresses']?></td>
 					<td><?=$row['City']?></td>
 					<td><?=$row['State']?></td>
