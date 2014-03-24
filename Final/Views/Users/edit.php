@@ -40,7 +40,7 @@
 		<div class="form-group <?if(isset($errors['FirstName'])) echo 'has-error has-feedback' ?> ">
 			<label for="FirstName">First Name:</label>
 			<input class="form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
-			
+		
 			<? if(isset($errors['FirstName'])): ?>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				<span><?=$errors['FirstName']?></span>
