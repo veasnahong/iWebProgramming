@@ -44,6 +44,7 @@
 		      </div>
 	
       <!-- FOOTER -->
+      <legend> </legend>
       <footer>
 		<ul class="nav nav-pills">
 			 <li><a href="#">Contact</a></li>

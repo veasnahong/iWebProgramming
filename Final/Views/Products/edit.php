@@ -29,7 +29,7 @@
 	
 	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
 		<fieldset>
-			<legend>Insert and Update Products</legend>
+			<legend>Insert or Update Products</legend>
 			
 			<input type="hidden" name="id" value="<?=$model['id']?>" />
 			

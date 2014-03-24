@@ -5,8 +5,8 @@
 	{
 		static public function Get($id = null)
 		{
-			$sql = "SELECT A.*, U.Username as UsersID_Name
-			FROM 2014Spring_Addresses A Join 2014Spring_Users U ON A.Users_id = U.id  ";
+			$sql = "SELECT A.*, U.Username as UsersID_Name, K.Name as Address_Type
+					FROM 2014Spring_Addresses A Join 2014Spring_Users U ON A.Users_id = U.id Join 2014Spring_Keywords K ON A.AddressType = K.id";
 			if($id == null)
 			{
 				// echo $sql;

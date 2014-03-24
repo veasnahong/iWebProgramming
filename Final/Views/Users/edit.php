@@ -71,8 +71,7 @@
 			<div class="form-group">
 				<label class="col-md-2 control-label">Select User Type</label>
 		     	<div class="col-md-4">
-		     		
-			    	<select class="form-control"class="col-md-4" input id="UserType" name="UserType" type="text" value="<?=$model['UserType']?>">
+		     		<select class="form-control"class="col-md-4" input id="UserType" name="UserType" type="text" value="<?=$model['UserType']?>">
 					      <option>6</option>
 						  <option>7</option>
 						  <option>8</option>
@@ -83,7 +82,7 @@
 						  <option>Employee</option>
 						  <option>Customer</option>
 						  <option>Supplier</option>-->
-		     </select> 
+		     		</select> 
 	       	</div> 
 		    </div>
 			<div class="form-group">
