@@ -10,38 +10,41 @@
 	{
 		case 'new':
 			$view = 'edit';
-		break;
+			break;
 		case 'edit':
 			$model = Users::Get($_REQUEST['id']);
 			break;
 		case 'save':
-			// TODO: Validate
-			if(!$errors = Users::Save($_REQUEST))
-			{
-				header("Location: ?");
-				die();
-			}
-			else
-			{
-				print_r($errors);
-				$model = $_REQUEST;
-				$view = 'edit';
-			}
-			break;
+			$errors = Users::Validate($_REQUEST);
+			if(!$errors){
+			$errors = Users::Save($_REQUEST);
+	}
+		if(!$errors)
+		{
+			header("Location: ?");
+			die();
+		}
+		else
+		{
+			//print_r($errors);
+			$model = $_REQUEST;
+			$view = 'edit';
+		}
+		break;
 		case 'delete':
 			break;
 			default:
 			$model = Users::Get();
-			if($view == null) $view = 'index';
-	}
+		if($view == null) $view = 'index';
+		}
 	
-	switch ($format)
-	 {
-		case 'plain':
+		switch ($format) 
+		{
+			case 'plain':
 			include __DIR__ . "/../Views/Users/$view.php";	
 			break;
 			default:
-			$view = __DIR__ . "/../Views/Users/$view.php";	
-			include __DIR__ . "/../Views/Shared/_Layout.php";
-			break;
+	$view = __DIR__ . "/../Views/Users/$view.php";	
+	include __DIR__ . "/../Views/Shared/_Layout.php";
+	break;
 	}

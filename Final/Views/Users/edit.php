@@ -1,104 +1,91 @@
-		
-<!--	<form action="?action=save" method="post">
-		<input type="hidden" name="id" value="<?=$model['id']?>" />
-		<label for="FirstName">First Name:</label>
-		<input type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" />
-		<br />
-		<label for="LastName">Last Name:</label>
-		<input type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" />
-		<br />
-		<label for="Password">Password:</label>
-		<input type="password" name="Password" id="Password" value="<?=$model['Password']?>" />
-		<br />
-		<label for="fbid">fbid:</label>
-		<input type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" />
-		<br />
-		<label for="UserType">User Type:</label>
-		<input type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" />
-		<br />
-		<input type="submit" value="Save" />
-	</form> -->
 
-
-
+	<style type="text/css">
+		.error 
+		{
+			color: red;
+		}
+		.my-horizontal label 
+		{
+			display: inline-block;
+			width: 150px;
+			text-align: right;
+			margin-right: 10px;
+		}
+		.my-horizontal .form-control
+		{
+			display: inline-block;
+		}
+		@media screen and (min-width: 768px) 
+		{
+			.my-horizontal .form-control
+			{
+				width: 25%;
+				margin-bottom: 5px;
+			}
+		}
+	</style>
 	
-	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
-		<fieldset>
-			<legend>Register</legend>
+	
+	<h2>Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h2>
+	
+	<ul class="error">
+		<? foreach ($errors as $key => $value): ?>
+			<li><b><?=$key?>:</b> <?=$value?></li>
+		<? endforeach; ?>
+	</ul>
+	
+	<form action="?action=save" method="post" class="my-horizontal">
+		<input type="hidden" name="id" value="<?=$model['id']?>" />
 			
-			<input type="hidden" name="id" value="<?=$model['id']?>" />
+		<div class="form-group <?if(isset($errors['FirstName'])) echo 'has-error has-feedback' ?> ">
+			<label for="FirstName">First Name:</label>
+			<input class="form-control" type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>" placeholder="First Name" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="first">First Name</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="FirstName" id="FirstName" value="<?=$model['FirstName']?>"class="form-control input-md" />
-            	</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="last">Last Name</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" class="form-control input-md"/>
-            	</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="username">Username</label>
-				<div class="col-md-4">
-					<input type="text" name="Username" id="Username" value="<?=$model['Username']?>" class="form-control input-md" />
-				</div>
+			<? if(isset($errors['FirstName'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['FirstName']?></span>
+			<? endif ?>
 		</div>
+		
+		<div class="form-group <?if(isset($errors['LastName'])) echo 'has-error has-feedback' ?> ">
+			<label for="LastName">Last Name:</label>
+			<input class="form-control" type="text" name="LastName" id="LastName" value="<?=$model['LastName']?>" placeholder="Last Name" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="password">Password</label>
-				<div class="col-md-4">
-					<input type="password" name="Password" id="Password" value="<?=$model['Password']?>"class="form-control input-md"/>
-				</div>
-			</div>
-			
-			<!--<div class="form-group">
-				<label class="col-md-2 control-label" for="password2">Repeat Password</label>
-				<div class="col-md-4"><input id="RepeatPassword" name="RepeatPassword" type="password" placeholder="Repeat Password" class="form-control input-md register-password-field"></div>
-			</div>-->
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="FacebookID">Facebook ID</label>
-				<div class="col-md-4">
-					<input type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" class="form-control input-md" />
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Select User Type</label>
-		     	<div class="col-md-4">
-		     		
-			    	<select class="form-control"class="col-md-4" input id="UserType" name="UserType" type="text" value="<?=$model['UserType']?>">
-					      <option>6</option>
-						  <option>7</option>
-						  <option>8</option>
-						  <option>9</option>
-					
-						 <!-- <option>Admin</option>
-						  <option>User</option>
-						  <option>Employee</option>
-						  <option>Customer</option>
-						  <option>Supplier</option>-->
-		     </select> 
-	       	</div> 
-		    </div>
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="singlebutton">Click Submit </label>
-				<div class="col-md-2">
-					<button id="Save" name="Save" value="Save" class="btn btn-primary">Submit</button>
-				</div>
-			</div>
-			
-		</fieldset>
-	</form>
-</br>
+			<? if(isset($errors['LastName'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['LastName']?></span>
+			<? endif ?>
+		</div>
 
-<!--<pre>
-		<? print_r($_GET); ?>
-		<? print_r($_POST); ?>
-	</pre> -->
+		<div class="form-group <?if(isset($errors['Username'])) echo 'has-error has-feedback' ?> ">
+			<label for="Username">Username:</label>
+			<input class="form-control" type="text" name="Username" id="Username" value="<?=$model['Username']?>" placeholder="Username" />
+			
+			<? if(isset($errors['Username'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Username']?></span>
+			<? endif ?>
+		</div>
+		
+		<label for="Password">Password:</label>
+		<input class="form-control" type="password" name="Password" id="Password" value="<?=$model['Password']?>" placeholder="Password" />
+		<br />
+		
+		<label for="fbid">fbid:</label>
+		<input class="form-control" type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" placeholder="fbid" />
+		
+		<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
+			<label for="UserType">User Type:</label>
+			<input class="form-control" type="text" name="UserType" id="UserType" value="<?=$model['UserType']?>" placeholder="User Type" />
+			
+			<? if(isset($errors['UserType'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['UserType']?></span>
+			<? endif ?>
+		</div>
+		
+		<label></label>
+		<input class="btn" type="submit" value="Save" />
+		
+	</form>
 	

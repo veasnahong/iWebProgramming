@@ -34,61 +34,58 @@
 		}
 	
 	
-		static public function Save($row)
-		{
-			$conn = GetConnection();
-			
-			if (isset($row['id'])) 
-			{
-				$sql = "INSERT INTO 2014Spring_Users
-				(FirstName, LastName, Username, Password, fbid, UserType)
-				VALUES ('$row[FirstName]', '$row[LastName]','$row[Username]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				
-				// echo $sql;
-				// $sql = "Update 2014Spring_Users
-				// Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-				// Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				// WHERE id = $row[id]";
-			
-		
-			}
-			else
-			{
-				// $sql = "INSERT INTO 2014Spring_Users
-				// (FirstName, LastName, Password, fbid, UserType)
-				// VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				// echo $sql;
-				
-				$sql = "Update 2014Spring_Users
-				Set FirstName='$row[FirstName]', LastName='$row[LastName]', Username ='$row[Username]',
-				Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				WHERE id = $row[id]";
-					
-			}
-		
+	static public function Save($row)
+	{
+		$conn = GetConnection();
 	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			$conn->close();
-			
-			return $error ? array ('sql error' => $error) : false;
-			}
-			
-			static public function Blank()
-			{
-			return array( 'id' => null);
-			}
-			
-			static public function Delete($id)
-			{
-			
-			}
-			
-			static public function Validate($row)
-			{
-			
-			}
-			
+		if (isset($row['id'])) 
+		{
+			$sql = "Update 2014Spring_Users
+						Set FirstName='$row[FirstName]', 
+							LastName='$row[LastName]',
+							Username='$row[Username]',
+							Password='$row[Password]', 
+							fbid='$row[fbid]', 
+							UserType='$row[UserType]'
+						WHERE id = $row[id]";
+		}
+		else
+		{
+			$sql = "INSERT INTO 2014Spring_Users (FirstName, LastName,Username, Password, fbid, UserType)
+					VALUES ('$row[FirstName]', '$row[LastName]', '$row[Username]', '$row[Password]', '$row[fbid]', '$row[UserType]' ) ";	
 		}
 	
+		//echo $sql;
+		$results = $conn->query($sql);
+		$error = $conn->error;
+		$conn->close();
+		
+		return $error ? array ('sql error' => $error) : false;
+	}
+	
+	static public function Blank()
+	{
+		return array( 'id' => null);
+	}
+	
+	static public function Delete($id)
+	{
+	
+	}
+	
+	static public function Validate($row)
+	{
+		$errors = array();
+		if(empty($row['FirstName'])) $errors['FirstName'] = "is required";
+		if(empty($row['LastName'])) $errors['LastName'] = "is required";
+		
+		if(!is_numeric($row['UserType'])) $errors['UserType'] = "must be a number";
+		if(empty($row['UserType'])) $errors['UserType'] = "is required";
+		
+		return count($errors) > 0 ? $errors : false ;
+	}
+	
+	}
+	
+	
+		

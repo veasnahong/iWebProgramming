@@ -1,13 +1,14 @@
 <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.min.css" />
-	<h2>
-		List of Users
-	</h2>
+	
+	<h2>List of Users</h2>
+	
 	<a href="?action=new"> Create New </a>
 	
 	
 		<table class="table table-striped table-bordered table-hover">
 			<thead>
 				<tr>
+					<th>ID</th>
 					<th>FirstName</th>
 					<th>LastName</th>
 					<th>Username</th>
@@ -20,6 +21,7 @@
 			<tbody>
 				<? foreach ($model as $row): ?>
 					<tr>
+						<td><?=$row['id']?></td>
 						<td><?=$row['FirstName']?></td>
 						<td><?=$row['LastName']?></td>
 						<td><?=$row['Username']?></td>
