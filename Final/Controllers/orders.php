@@ -5,36 +5,38 @@
 	@$view = $action = $_REQUEST['action'];
 	@$orders = $_REQUEST['orders'];
 	
-	
 	switch ($action)
 	{
 		case 'new':
 			$view = 'edit';
-		break;
+			break;
 		case 'edit':
 			$model = Orders::Get($_REQUEST['id']);
 			break;
 		case 'save':
-			// TODO: Validate
-			if(!$errors = Orders::Save($_REQUEST))
+			$errors = Orders::Validate($_REQUEST);
+			if(!$errors)
 			{
-				header("Location: ?");
-				die();
+				$errors = Orders::Save($_REQUEST);
 			}
-			else
-			{
-				print_r($errors);
-				$model = $_REQUEST;
-				$view = 'edit';
-			}
-			break;
+		if(!$errors)
+		{
+			header("Location: ?");
+			die();
+		}
+		else
+		{
+			//print_r($errors);
+			$model = $_REQUEST;
+			$view = 'edit';
+		}
+		break;
 		case 'delete':
 			break;
 			default:
 			$model = Orders::Get();
-			if($view == null) $view = 'index';
+		if($view == null) $view = 'index';
 	}
-	
 	switch ($orders)
 	 {
 		case 'plain':

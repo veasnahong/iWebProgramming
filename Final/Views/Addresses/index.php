@@ -3,7 +3,7 @@
 	<h2>
 		List of Customer Addresses
 	</h2><br/>
-	<a href="?action=new"> Create New </a><br/>
+	<a href="?action=new"> Create New </a><br/><br/>
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>

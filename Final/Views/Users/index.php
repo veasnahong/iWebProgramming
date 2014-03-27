@@ -2,7 +2,7 @@
 	
 	<h2>List of Users</h2>
 	
-	<a href="?action=new"> Create New </a>
+	<a href="?action=new"> Create New </a><br/><br/>
 	
 	
 		<table class="table table-striped table-bordered table-hover">

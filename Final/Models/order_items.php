@@ -41,34 +41,19 @@
 		static public function Save($row)
 		{
 			$conn = GetConnection();
-			
-			if (isset($row['id'])) 
+
+			if (!empty($row['id'])) 
 			{
-				$sql = "INSERT INTO 2014Spring_Order_Items
-				(Order_id, Product_id)
-				VALUES ('$row[Order_id]', '$row[Product_id]')";
-				
-				// echo $sql;
-				// $sql = "Update 2014Spring_Users
-				// Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-				// Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				// WHERE id = $row[id]";
-			
-		
+				$sql = "Update 2014Spring_Order_Items
+							Set Order_id='$row[Order_id]', 
+								Product_id='$row[Product_id]'
+							WHERE id = $row[id]";
 			}
 			else
 			{
-				// $sql = "INSERT INTO 2014Spring_Users
-				// (FirstName, LastName, Password, fbid, UserType)
-				// VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				// echo $sql;
-				
-				$sql = "Update 2014Spring_Order_Items
-				Set Order_id='$row[Order_id]', Product_id='$row[Product_id]'
-				WHERE id = $row[id]";
-					
+				$sql = "INSERT INTO 2014Spring_Order_Items (Order_id, Product_id)
+					VALUES ('$row[Order_id]', '$row[Product_id]') ";	
 			}
-		
 	
 			//echo $sql;
 			$results = $conn->query($sql);
@@ -90,7 +75,13 @@
 			
 			static public function Validate($row)
 			{
-			
+				if(empty($row['Order_id'])) $errors['Order_id'] = "is required";
+				if(!is_numeric($row['Order_id'])) $errors['Order_id'] = "must be a number";
+				
+				if(empty($row['Product_id'])) $errors['Product_id'] = "is required";
+				if(!is_numeric($row['Product_id'])) $errors['Product_id'] = "must be a number";
+				
+				return count($errors) > 0 ? $errors : false ;
 			}
 			
 		}

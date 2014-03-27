@@ -25,8 +25,7 @@
 		}
 	</style>
 	
-	
-	<h2>Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h2>
+	<legend><h2>Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h2></legend>
 	
 	<ul class="error">
 		<? foreach ($errors as $key => $value): ?>
@@ -84,8 +83,15 @@
 			<? endif ?>
 		</div>
 		
-		<label></label>
-		<input class="btn" type="submit" value="Save" />
+		<div class="form-group">
+			<legend> </legend>
+			<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
+			<div class="col-md-2">
+				<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
+			</div>
+		</div><br>
+				
+		
 		
 	</form>
 	

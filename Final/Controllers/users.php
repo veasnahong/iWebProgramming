@@ -16,9 +16,10 @@
 			break;
 		case 'save':
 			$errors = Users::Validate($_REQUEST);
-			if(!$errors){
-			$errors = Users::Save($_REQUEST);
-	}
+			if(!$errors)
+			{
+				$errors = Users::Save($_REQUEST);
+			}
 		if(!$errors)
 		{
 			header("Location: ?");
@@ -36,15 +37,15 @@
 			default:
 			$model = Users::Get();
 		if($view == null) $view = 'index';
-		}
+	}
 	
-		switch ($format) 
-		{
-			case 'plain':
-			include __DIR__ . "/../Views/Users/$view.php";	
-			break;
-			default:
-	$view = __DIR__ . "/../Views/Users/$view.php";	
-	include __DIR__ . "/../Views/Shared/_Layout.php";
-	break;
+	switch ($format) 
+	{
+		case 'plain':
+		include __DIR__ . "/../Views/Users/$view.php";	
+		break;
+		default:
+		$view = __DIR__ . "/../Views/Users/$view.php";	
+		include __DIR__ . "/../Views/Shared/_Layout.php";
+		break;
 	}

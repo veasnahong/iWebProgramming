@@ -2,7 +2,7 @@
 	<h2>
 		List of Order Items
 	</h2><br/>
-		<a href="?action=new"> Create New </a><br/>
+		<a href="?action=new"> Create New </a><br/><br/>
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -12,6 +12,7 @@
 				<th>Users_ID</th>
 				<th>UserName</th>
 				<th>ProductName</th>
+				<th>Edit</th>
 			</tr>
 		</thead>
 		
@@ -24,6 +25,7 @@
 					<td><?=$row['Users_ID']?></td>
 					<td><?=$row['UserName']?></td>
 					<td><?=$row['ProductName']?></td>
+					<td><a href="?action=edit&id=<?=$row['id']?>">Edit</a></td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>

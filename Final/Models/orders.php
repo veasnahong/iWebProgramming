@@ -32,37 +32,24 @@
 			
 			
 		}
-	
-	
-		static public function Save($row)
-		{
+			static public function Save($row)
+			{
 			$conn = GetConnection();
 			
-			if (isset($row['id'])) 
-			{
-				$sql = "INSERT INTO 2014Spring_Orders
-				(User_id, Address_id)
-				VALUES ('$row[User_id]', '$row[Address_id]')";
-				
-				// echo $sql;
-				// $sql = "Update 2014Spring_Users
-				// Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-				// Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				// WHERE id = $row[id]";
 			
-		
+			if (!empty($row['id'])) 
+			{
+				$sql = "Update 2014Spring_Orders
+							Set User_id='$row[User_id]', 
+								Address_id='$row[Address_id]'
+							
+							WHERE id = $row[id]";
 			}
 			else
 			{
-				// $sql = "INSERT INTO 2014Spring_Users
-				// (FirstName, LastName, Password, fbid, UserType)
-				// VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				// echo $sql;
+				$sql = "INSERT INTO 2014Spring_Orders (User_id, Address_id)
+					VALUES ('$row[User_id]', '$row[Address_id]' ) ";	
 				
-				$sql = "Update 2014Spring_Addresses
-				Set User_id='$row[User_id]', Address_id='$row[Address_id]'
-				WHERE id = $row[id]";
-					
 			}
 		
 	
@@ -86,7 +73,13 @@
 			
 			static public function Validate($row)
 			{
-			
+				if(empty($row['User_id'])) $errors['User_id'] = "is required";
+				if(!is_numeric($row['User_id'])) $errors['User_id'] = "must be a number";
+				
+				if(empty($row['Address_id'])) $errors['Address_id'] = "is required";
+				if(!is_numeric($row['Address_id'])) $errors['Address_id'] = "must be a number";
+				
+				return count($errors) > 0 ? $errors : false ;
 			}
 			
 		}
