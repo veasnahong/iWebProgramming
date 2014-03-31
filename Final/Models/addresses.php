@@ -6,11 +6,7 @@
 		static public function Get($id = null)
 		{
 			$sql = "SELECT A.*, U.Username as UsersID_Name, K.Name as Address_Type
-<<<<<<< HEAD
-					FROM 2014Spring_Addresses A Join 2014Spring_Users U ON A.Users_id = U.id Join 2014Spring_Keywords K ON A.AddressType = K.id; ";
-=======
 					FROM 2014Spring_Addresses A Join 2014Spring_Users U ON A.Users_id = U.id Join 2014Spring_Keywords K ON A.AddressType = K.id";
->>>>>>> b14a716ab9c2c548d15fb492bdb9ff1496310377
 			if($id == null)
 			{
 				// echo $sql;
