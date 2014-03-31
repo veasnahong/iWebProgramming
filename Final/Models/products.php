@@ -35,36 +35,35 @@
 		{
 			$conn = GetConnection();
 		
-			if (!empty($row['id'])) 
-			{
-				$sql = "Update 2014Spring_Products
-							Set Suplier_id='$row[Suplier_id]', 
-								Name='$row[Name]',
-								Price='$row[Price]',
-								Picture_Url='$row[Picture_Url]', 
-								Description='$row[Description]', 
-								Catergory_Keyword_id='$row[Catergory_Keyword_id]'
-						WHERE id = $row[id]";
-			}
-			else
-			{
-				$sql = "INSERT INTO 2014Spring_Products
-							(Suplier_id, Name, Price, Picture_Url, Description, Catergory_Keyword_id)
-						VALUES ('$row[Suplier_id]','$row[Name]','$row[Price]', '$row[Picture_Url]','$row[Description]','$row[Catergory_Keyword_id]');	
-				
-			}
+				if (!empty($row['id'])) 
+				{
+					$sql = "Update 2014Spring_Products
+								Set Suplier_id='$row[Suplier_id]', 
+									Name='$row[Name]',
+									Price='$row[Price]',
+									Picture_Url='$row[Picture_Url]', 
+									Description='$row[Description]', 
+									Catergory_Keyword_id='$row[Catergory_Keyword_id]'
+							WHERE id = $row[id]";
+				}
+				else
+				{
+					$sql = "INSERT INTO 2014Spring_Products (Suplier_id, Name, Price, Picture_Url, Description, Catergory_Keyword_id) 
+							VALUES ('$row[Suplier_id]','$row[Name]','$row[Price]', '$row[Picture_Url]','$row[Description]','$row[Catergory_Keyword_id]')";	
+					
+				}
 	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			$conn->close();
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
 			
-			return $error ? array ('sql error' => $error) : false;
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Blank()
 			{
-			return array( 'id' => null);
+				return array( 'id' => null);
 			}
 			
 			static public function Delete($id)

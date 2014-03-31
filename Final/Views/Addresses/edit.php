@@ -1,30 +1,6 @@
 
-	<style type="text/css">
-		.error 
-		{
-			color: red;
-		}
-		.my-horizontal label 
-		{
-			display: inline-block;
-			width: 150px;
-			text-align: right;
-			margin-right: 10px;
-		}
-		.my-horizontal .form-control
-		{
-			display: inline-block;
-		}
-		@media screen and (min-width: 768px) 
-		{
-			.my-horizontal .form-control
-			{
-				width: 25%;
-				margin-bottom: 5px;
-			}
-		}
-	</style>
-	
+	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
+
 	<legend><h2>Edit: <?=$model['UsersID_Name']?></h2></legend>
 	
 	<ul class="error">
@@ -37,7 +13,7 @@
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
 			
 		<div class="form-group <?if(!empty($errors['Users_id'])) echo 'has-error has-feedback' ?> ">
-			<label for="Users_id">User ID:</label>
+			<label class="control-label" for="Users_id">User ID:</label>
 			<input class="form-control" type="text" name="Users_id" id="Users_id" value="<?=$model['Users_id']?>" placeholder="User ID" />
 			
 			<? if(!empty($errors['Users_id'])): ?>

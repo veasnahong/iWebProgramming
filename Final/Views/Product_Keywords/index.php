@@ -9,6 +9,7 @@
 				<th>Updated_At</th>
 				<th>Product_ID</th>
 				<th>Keyword_ID</th>
+				<th>Edit</th>
 			</tr>
 		</thead>
 		
@@ -20,6 +21,13 @@
 					<td><?=$row['updated_at']?></td>
 					<td><?=$row['Product_id']?></td>
 					<td><?=$row['Keyword_id']?></td>
+					<td>
+						<div class="btn-group">
+							<a class="btn btn-sm btn-default glyphicon glyphicon-edit" title="Edit" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-eye-open" title="Details" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=edit&id=<?=$row['id']?>"></a>
+						</div>
+					</td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>

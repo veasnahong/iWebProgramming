@@ -20,17 +20,9 @@
   <body>
     <div class="navbar-wrapper">
       <div class="container">
-      	<div class="page-header">
-			<form class="navbar-form navbar-right" role="search">
-			  <div class="form-group">
-			    <input type="text" class="form-control" placeholder="Search">
-			  </div>
-			  <button type="submit" class="btn btn-default">Submit</button>
-			</form>
-  			<h1>Store <small>Find location near you</small></h1>
-		</div>
-		
-        <? include '../inc/nav.php';?>
+      	
+      	<? include '../inc/header.php';?> 	<!-- Header -->		
+        <? include '../inc/nav.php';?>		<!-- Navigation Menu Bar-->	
         
         <div class="container">
         <!-- Main jumbotron for a primary marketing message or call to action -->
@@ -40,16 +32,7 @@
 	        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
 	      </div>	
 	    
-      <!-- FOOTER -->
-      <legend> </legend>
-      <footer>
-		<ul class="nav nav-pills">
-			 <li><a href="#">Contact</a></li>
-		  	 <li><a href="#">Carrer</a></li>
-		  	 <li><a href="#">About</a></li>
-			 <li><a href="#">Store Location</a></li>
-		</ul>
-      </footer>
+     	<? include '../inc/footer.php';?>		<!-- footer-->
 
     </div><!-- /.container -->
 

@@ -1,72 +1,34 @@
-		
-<!--	<form action="?action=save" method="post">
+
+	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
+	
+	<legend><h2>Edit: <?=$model['UsersID_Name']?></h2></legend>
+	
+	<ul class="error">
+		<? foreach ($errors as $key => $value): ?>
+			<li><b><?=$key?>:</b> <?=$value?></li>
+		<? endforeach; ?>
+	</ul>
+	
+	<form action="?action=save" method="post" class="my-horizontal">
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
+			
+		<div class="form-group <?if(!empty($errors['Name'])) echo 'has-error has-feedback' ?> ">
+			<label for="Name">Suppliers:</label>
+			<input class="form-control" type="text" name="Name" id="Name" value="<?=$model['Name']?>" placeholder="Supplier Name" />
+			
+			<? if(!empty($errors['Name'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Name']?></span>
+			<? endif ?>
+		</div>
 		
-		<label for="Name">Supplier ID:</label>
-		<input type="text" name="Suplier_id" id="Suplier_id" value="<?=$model['Suplier_id']?>" />
-		<br />
-		<label for="Name">Name:</label>
-		<input type="text" name="Name" id="Name" value="<?=$model['Name']?>" />
-		<br />
-		<label for="LastName">Price:</label>
-		<input type="text" name="Price" id="Price" value="<?=$model['Price']?>" />
-		<br />
-		<label>Picture_URL:</label>
-		<input type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" />
-		<br />
-		<label>Description:</label>
-		<input type="text" name="Description" id="Description" value="<?=$model['Description']?>" />
-		<br />
-		<label>Catergory Keyword:</label>
-		<input type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" />
-		<br />
-	
-		<input type="submit" value="Save" />
-</form> -->
-
-
-
-	
-	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
-		<fieldset>
-			<legend>Insert or Update Suppliers</legend>
+		<div class="form-group">
+			<legend> </legend>
+			<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
+			<div class="col-md-2">
+				<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
+			</div>
+		</div><br>
 			
-			<input type="hidden" name="id" value="<?=$model['id']?>" />
-		    
-		<!--	<div class="form-group">
-				<label class="col-md-2 control-label">Created At</label>
-				<div class="col-md-4">
-					<input type="text" name="created_at" id="created_at" value="<?=$model['created_at']?>"class="form-control input-md"/>
-				</div>
-			</div>
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Updated At</label>
-				<div class="col-md-4">
-					<input type="text" name="updated_at" id="updated_at" value="<?=$model['updated_at']?>"class="form-control input-md"/>
-				</div>
-			</div>
-		-->		
-			<div class="form-group">
-				<label class="col-md-2 control-label">Name of Supplier</label>
-				<div class="col-md-4">
-					<input type="text" name="Name" id="Name" value="<?=$model['Name']?>"class="form-control input-md"/>
-				</div>
-			</div>
-		
-	
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="singlebutton">Click Submit </label>
-				<div class="col-md-2">
-					<button id="Save" name="Save" value="Save" class="btn btn-primary">Submit</button>
-				</div>
-			</div>
-			
-		</fieldset>
-	</form></br>
-	
-	<!--<pre>
-		<? print_r($_GET); ?>
-		<? print_r($_POST); ?>
-	</pre> -->
+	</form>
 	

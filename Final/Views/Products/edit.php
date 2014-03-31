@@ -1,32 +1,8 @@
 
 	
-	<style type="text/css">
-		.error 
-		{
-			color: red;
-		}
-		.my-horizontal label 
-		{
-			display: inline-block;
-			width: 150px;
-			text-align: right;
-			margin-right: 10px;
-		}
-		.my-horizontal .form-control
-		{
-			display: inline-block;
-		}
-		@media screen and (min-width: 768px) 
-		{
-			.my-horizontal .form-control
-			{
-				width: 25%;
-				margin-bottom: 5px;
-			}
-		}
-	</style>
+	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
 	
-	<legend><h2>Edit: <?=$model['Suplier_id']?></h2></legend>
+	<legend><h2>Edit: <?=$model['Name']?></h2></legend>
 	
 	<ul class="error">
 		<? foreach ($errors as $key => $value): ?>

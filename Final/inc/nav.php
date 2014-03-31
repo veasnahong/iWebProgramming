@@ -32,9 +32,23 @@
 								);
 							?>
 							<? foreach ($links as $value) { ?>
-							<li class="<?=$value['class']?>" ><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
+								<li class="<?=$value['class']?>" ><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
 							<? } ?>
-				   			</ul>
+							
+				   		 </ul>
+				   		 <ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+						
+				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				              	 <span class="glyphicon glyphicon-shopping-cart"></span>Cart</a>
+					              <ul class="dropdown-menu">
+					                <li><a href="login">View Cart</a></li>
+					                <li><a href="login">Saved Items</a></li>
+					                <li><a href="login">Saved Cart</a></li>
+					              </ul>
+				            </li>
+			           	</ul>
+				   		 
 				   		 <ul class="nav navbar-nav navbar-right"> 
 							<li class="dropdown">
 				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
@@ -53,18 +67,24 @@
 				                <li><a href="#">Logout</a></li>
 				              </ul>
 				            </li>
-			           	</ul>	
-				          <ul class="nav navbar-nav navbar-right"> 
+				        </ul>	
+			           	
+				        <ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
-				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
-				              <ul class="dropdown-menu">
-				                <li><a href="login">Sign in</a></li>
-				                <li><a href="createAccount.php">Create an Account</a></li> 
-				                <li class="divider"></li>
-				                <li><a href="#">Logout</a></li>
-				              </ul>
-				            </li>
-			           	</ul></br></br>
+				               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				              		<span class="glyphicon glyphicon-cog"></span>Account</a>
+					              <ul class="dropdown-menu">
+					                <li><a href="../Controllers/checkOrder.php">Check Order Status</a></li>
+					                <li><a href="createAccount.php">Return Items</a></li> 
+					                <li><a href="../Controllers/checkOrder.php">Cancel Items</a></li>
+					                <li><a href="createAccount.php">View Account</a></li> 
+					                
+					                <li class="divider"></li>
+					                <li><a href="createAccount.php">Get Help</a></li> 
+				              	</ul>
+				          </li>
+			           </ul></br></br>
+
 					</div>
 		          </div>
 		        </div>
