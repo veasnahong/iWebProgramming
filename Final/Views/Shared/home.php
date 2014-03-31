@@ -16,8 +16,7 @@
 	 
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/docs/examples/carousel/carousel.css" rel="stylesheet">
 	<link href="../inc/bootstrap/docs/examples/carousel/carousel.css" rel="stylesheet">
-	
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/docs/examples/carousel/carousel.css" rel="stylesheet">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/docs/examples/carousel/carousel.css" rel="stylesheet">
 
         <style type="text/css">
      /* Move down content because we have a fixed navbar that is 50px tall */
