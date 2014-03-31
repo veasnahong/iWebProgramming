@@ -4,35 +4,38 @@
 	
 	@$view = $action = $_REQUEST['action'];
 	@$contactMethods = $_REQUEST['contactMethods'];
-	
-	
+
 	switch ($action)
 	{
 		case 'new':
 			$view = 'edit';
-		break;
+			break;
 		case 'edit':
 			$model = ContactMethods::Get($_REQUEST['id']);
 			break;
 		case 'save':
-			// TODO: Validate
-			if(!$errors = ContactMethods::Save($_REQUEST))
+			$errors = ContactMethods::Validate($_REQUEST);
+			if(!$errors)
 			{
-				header("Location: ?");
-				die();
+				$errors = ContactMethods::Save($_REQUEST);
 			}
-			else
-			{
-				print_r($errors);
-				$model = $_REQUEST;
-				$view = 'edit';
-			}
-			break;
+		if(!$errors)
+		{
+			header("Location: ?");
+			die();
+		}
+		else
+		{
+			//print_r($errors);
+			$model = $_REQUEST;
+			$view = 'edit';
+		}
+		break;
 		case 'delete':
 			break;
 			default:
 			$model = ContactMethods::Get();
-			if($view == null) $view = 'index';
+		if($view == null) $view = 'index';
 	}
 	
 	switch ($contactMethods)

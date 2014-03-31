@@ -8,7 +8,7 @@
 	<h2>
 		List of Customer Addresses
 	</h2><br/>
-	<a href="?action=new"> Create New </a><br/>
+	<a href="?action=new"> Create New </a><br/><br/>
 	<table class="table table-striped table-bordered table-hover">
 		<thead>
 			<tr>
@@ -35,7 +35,13 @@
 					<td><?=$row['State']?></td>
 					<td><?=$row['Zip']?></td>
 					<td><?=$row['Country']?></td>
-					<td><a href="?action=edit&id=<?=$row['id']?>">Edit</a></td>
+					<td>
+						<div class="btn-group">
+							<a class="btn btn-sm btn-default glyphicon glyphicon-edit" title="Edit" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-eye-open" title="Details" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=edit&id=<?=$row['id']?>"></a>
+						</div>
+					</td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>

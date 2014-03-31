@@ -39,33 +39,17 @@
 		{
 			$conn = GetConnection();
 			
-			if (isset($row['id'])) 
+			if (!empty($row['id'])) 
 			{
-				$sql = "INSERT INTO 2014Spring_Supliers
-				(Name)
-				VALUES ('$row[Name]')";
-			//	VALUES ('$row[created_at]','$row[updated_at]', '$row[Name]')";
-				
-				// echo $sql;
-				// $sql = "Update 2014Spring_Users
-				// Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-				// Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				// WHERE id = $row[id]";
-			
-		
+				$sql = "Update 2014Spring_Supliers
+						Set Name='$row[Name]' 
+						WHERE id = $row[id]";
 			}
 			else
 			{
-				// $sql = "INSERT INTO 2014Spring_Users
-				// (FirstName, LastName, Password, fbid, UserType)
-				// VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				// echo $sql;
+				$sql = "INSERT INTO 2014Spring_Supliers (Name)
+						VALUES ('$row[Name]') ";	
 				
-				$sql = "Update 2014Spring_Supliers
-				Set Name='$row[Name]'
-				WHERE id = $row[id]";
-			//	Set created_at='$row[created_at]', updated_at ='$row[updated_at]',Name='$row[Name]'
-					
 			}
 		
 	
@@ -89,7 +73,8 @@
 			
 			static public function Validate($row)
 			{
-			
+				if(empty($row['Name'])) $errors['Name'] = "is required";				
+				return count($errors) > 0 ? $errors : false ;
 			}
 			
 		}

@@ -37,8 +37,9 @@
 	static public function Save($row)
 	{
 		$conn = GetConnection();
-	
-		if (isset($row['id'])) 
+		$row = escape_all($row, $conn);
+		
+		if (isset($row['id']))
 		{
 			$sql = "Update 2014Spring_Users
 						Set FirstName='$row[FirstName]', 

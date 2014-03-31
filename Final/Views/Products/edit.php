@@ -1,104 +1,100 @@
-		
-<!--	<form action="?action=save" method="post">
+
+	
+	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
+	
+	<legend><h2>Edit: <?=$model['Name']?></h2></legend>
+	
+	<ul class="error">
+		<? foreach ($errors as $key => $value): ?>
+			<li><b><?=$key?>:</b> <?=$value?></li>
+		<? endforeach; ?>
+	</ul>
+	
+	<form action="?action=save" method="post" class="my-horizontal">
 		<input type="hidden" name="id" value="<?=$model['id']?>" />
-		
-		<label for="Name">Supplier ID:</label>
-		<input type="text" name="Suplier_id" id="Suplier_id" value="<?=$model['Suplier_id']?>" />
-		<br />
-		<label for="Name">Name:</label>
-		<input type="text" name="Name" id="Name" value="<?=$model['Name']?>" />
-		<br />
-		<label for="LastName">Price:</label>
-		<input type="text" name="Price" id="Price" value="<?=$model['Price']?>" />
-		<br />
-		<label>Picture_URL:</label>
-		<input type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" />
-		<br />
-		<label>Description:</label>
-		<input type="text" name="Description" id="Description" value="<?=$model['Description']?>" />
-		<br />
-		<label>Catergory Keyword:</label>
-		<input type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" />
-		<br />
-	
-		<input type="submit" value="Save" />
-</form> -->
-
-
-
-	
-	<form class="form-horizontal" action="?action=save" method="post" id="register-form">
-		<fieldset>
-			<legend>Insert or Update Products</legend>
 			
-			<input type="hidden" name="id" value="<?=$model['id']?>" />
-			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Supplier ID</label>
-		     	<div class="col-md-4">
-			    	<select class="form-control"class="col-md-4" input id="Suplier_id" name="Suplier_id" type="text" value="<?=$model['Suplier_id']?>">
+		<div class="form-group <?if(!empty($errors['Suplier_id'])) echo 'has-error has-feedback' ?> ">
+			<label for="Suplier_id">Supplier ID</label>
+			<input class="form-control" type="text" name="Suplier_id" id="Suplier_id" value="<?=$model['Suplier_id']?>" placeholder="Supplier ID" /> 
+			<!--<select class="form-control"class="col-md-4" input id="Suplier_id" name="Suplier_id" type="text" value="<?=$model['Suplier_id']?> placeholder="Supplier ID"">
 					      <option>1</option>
 						  <option>2</option>
 						  <option>3</option>
 						  <option>4</option>
-					</select> 
-	       		</div> 
-		    </div>
-		    
-			<div class="form-group">
-				<label class="col-md-2 control-label">Name</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="Name" id="Name" value="<?=$model['Name']?>"class="form-control input-md" />
-            	</div>
-			</div>
+			</select>-->
+			<? if(!empty($errors['Suplier_id'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Suplier_id']?></span>
+			<? endif ?>
+		</div>
+		
+		<div class="form-group <?if(!empty($errors['Name'])) echo 'has-error has-feedback' ?> ">
+			<label for="Name">Name:</label>
+			<input class="form-control" type="text" name="Name" id="Name" value="<?=$model['Name']?>" placeholder="Name" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Price</label>
-           	   	<div class="col-md-4">
-					<input type="text" name="Price" id="Price" value="<?=$model['Price']?>" class="form-control input-md"/>
-            	</div>
-			</div>
+			<? if(!empty($errors['Name'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Name']?></span>
+			<? endif ?>
+		</div>
+
+		<div class="form-group <?if(!empty($errors['Price'])) echo 'has-error has-feedback' ?> ">
+			<label for="Price">Price:</label>
+			<input class="form-control" type="text" name="Price" id="Price" value="<?=$model['Price']?>" placeholder="Price" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Picture URL</label>
-				<div class="col-md-4">
-					<input type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" class="form-control input-md" />
-				</div>
-			</div>
+			<? if(!empty($errors['Price'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Price']?></span>
+			<? endif ?>
+		</div>
+		
+		<div class="form-group <?if(!empty($errors['Picture_Url'])) echo 'has-error has-feedback' ?> ">
+			<label for="Picture_Url">Picture URL:</label>
+			<input class="form-control" type="text" name="Picture_Url" id="Picture_Url" value="<?=$model['Picture_Url']?>" placeholder="Picture URL" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Description</label>
-				<div class="col-md-4">
-					<input type="text" name="Description" id="Description" value="<?=$model['Description']?>"class="form-control input-md"/>
-				</div>
-			</div>
+			<? if(!empty($errors['Picture_Url'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Picture_Url']?></span>
+			<? endif ?>
+		</div>
+		
+		<div class="form-group <?if(!empty($errors['Description'])) echo 'has-error has-feedback' ?> ">
+			<label for="Description">Description:</label>
+			<input class="form-control" type="text" name="Description" id="Description" value="<?=$model['Description']?>" placeholder="Description" />
 			
-			<div class="form-group">
-				<label class="col-md-2 control-label">Catergory_Keyword_id</label>
-		     	<div class="col-md-4">
-			    	<select class="form-control"class="col-md-4" input id="Catergory_Keyword_id" name="Catergory_Keyword_id" type="text" value="<?=$model['Catergory_Keyword_id']?>">
-					      <option>17</option>
-						  <option>18</option>
-						  <option>19</option>
-						  <option>20</option>
-						  <option>21</option>
-						  <option>22</option>
-					</select> 
-	       		</div> 
-		    </div>
-		    
-			<div class="form-group">
-				<label class="col-md-2 control-label" for="singlebutton">Click Submit </label>
-				<div class="col-md-2">
-					<button id="Save" name="Save" value="Save" class="btn btn-primary">Submit</button>
-				</div>
+			<? if(!empty($errors['Description'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Description']?></span>
+			<? endif ?>
+		</div>
+		
+		<div class="form-group <?if(!empty($errors['Catergory_Keyword_id'])) echo 'has-error has-feedback' ?> ">
+			<label for="Catergory_Keyword_id">Catergory Keyword ID:</label>
+			<input class="form-control" type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" placeholder="Catergory Keyword ID" /> 
+				<!--<select class="form-control"class="col-md-4" input id="Catergory_Keyword_id" name="Catergory_Keyword_id" type="text" value="<?=$model['Catergory_Keyword_id']?> placeholder="Catergory Keyword ID"">
+			      <option>17</option>
+				  <option>18</option>
+				  <option>19</option>
+				  <option>20</option>
+				  <option>21</option>
+				  <option>22</option>
+				</select> -->
+			<? if(!empty($errors['Catergory_Keyword_id'])): ?>
+				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+				<span><?=$errors['Catergory_Keyword_id']?></span>
+			<? endif ?>
+		</div>
+		
+		<div class="form-group">
+			<legend> </legend>
+			<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
+			<div class="col-md-2">
+				<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
 			</div>
+		</div><br>
 			
-		</fieldset>
-	</form></br>
+	</form>
 	
-	<!--<pre>
-		<? print_r($_GET); ?>
-		<? print_r($_POST); ?>
-	</pre> -->
+
+
 	

@@ -41,34 +41,20 @@
 		static public function Save($row)
 		{
 			$conn = GetConnection();
-			
-			if (isset($row['id'])) 
+			if (!empty($row['id'])) 
 			{
-				$sql = "INSERT INTO 2014Spring_ContactMethods
-				(ContactMethodType, Value, User_id)
-				VALUES ('$row[ContactMethodType]', '$row[Value]','$row[User_id]')";
-				
-				// echo $sql;
-				// $sql = "Update 2014Spring_Users
-				// Set FirstName='$row[FirstName]', LastName='$row[LastName]',
-				// Password='$row[Password]', fbid='$row[fbid]', UserType='$row[UserType]'
-				// WHERE id = $row[id]";
-			
-		
+				$sql = "Update 2014Spring_ContactMethods
+							Set ContactMethodType='$row[ContactMethodType]', 
+								Value='$row[Value]',
+								User_id='$row[User_id]'
+							WHERE id = $row[id]";
 			}
 			else
 			{
-				// $sql = "INSERT INTO 2014Spring_Users
-				// (FirstName, LastName, Password, fbid, UserType)
-				// VALUES ('$row[FirstName]', '$row[LastName]', '$row[Password]', '$row[fbid]', '$row[UserType]')";
-				// echo $sql;
+				$sql = "INSERT INTO 2014Spring_ContactMethods (ContactMethodType, Value, User_id)
+					    VALUES ('$row[ContactMethodType]', '$row[Value]','$row[User_id]' ) ";	
 				
-				$sql = "Update 2014Spring_ContactMethods
-				Set ContactMethodType='$row[ContactMethodType]', Value='$row[Value]', User_id ='$row[User_id]'
-				WHERE id = $row[id]";
-					
 			}
-		
 	
 			//echo $sql;
 			$results = $conn->query($sql);
@@ -90,7 +76,15 @@
 			
 			static public function Validate($row)
 			{
-			
+				if(empty($row['User_id'])) $errors['User_id'] = "is required";
+				if(!is_numeric($row['User_id'])) $errors['User_id'] = "must be a number";
+				
+				if(empty($row['ContactMethodType'])) $errors['ContactMethodType'] = "is required";
+				if(!is_numeric($row['ContactMethodType'])) $errors['ContactMethodType'] = "must be a number";
+				
+				if(empty($row['Value'])) $errors['Value'] = "is required";
+				
+				return count($errors) > 0 ? $errors : false ;
 			}
 			
 		}

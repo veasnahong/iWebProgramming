@@ -6,34 +6,37 @@
 	@$view = $action = $_REQUEST['action'];
 	@$product = $_REQUEST['product'];
 	
-	
 	switch ($action)
 	{
 		case 'new':
 			$view = 'edit';
-		break;
+			break;
 		case 'edit':
 			$model = Products::Get($_REQUEST['id']);
 			break;
 		case 'save':
-			// TODO: Validate
-			if(!$errors = Products::Save($_REQUEST))
+			$errors = Products::Validate($_REQUEST);
+			if(!$errors)
 			{
-				header("Location: ?");
-				die();
+				$errors = Products::Save($_REQUEST);
 			}
-			else
-			{
-				print_r($errors);
-				$model = $_REQUEST;
-				$view = 'edit';
-			}
-			break;
+		if(!$errors)
+		{
+			header("Location: ?");
+			die();
+		}
+		else
+		{
+			//print_r($errors);
+			$model = $_REQUEST;
+			$view = 'edit';
+		}
+		break;
 		case 'delete':
 			break;
 			default:
 			$model = Products::Get();
-			if($view == null) $view = 'index';
+		if($view == null) $view = 'index';
 	}
 	
 	switch ($product)

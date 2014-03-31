@@ -27,7 +27,13 @@
 					<td><?=$row['Description']?></td>
 					<td><?=$row['Picture_Url']?></td>
 					<td><?=$row['Products_Catergories']?></td>
-					<td><a href="?action=edit&id=<?=$row['id']?>">Edit</a></td>
+					<td>
+						<div class="btn-group">
+							<a class="btn btn-sm btn-default glyphicon glyphicon-edit" title="Edit" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-eye-open" title="Details" href="?action=edit&id=<?=$row['id']?>"></a>
+							<a class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=edit&id=<?=$row['id']?>"></a>
+						</div>
+					</td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>

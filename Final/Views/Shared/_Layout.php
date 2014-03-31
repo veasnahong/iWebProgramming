@@ -25,36 +25,16 @@
 ================================================== -->
   <body>
     <div class="navbar-wrapper">
-      <div class="container">
-      	<div class="page-header">
-      		
-			<form class="navbar-form navbar-right" role="search">
-			  <div class="form-group">
-			    <input type="text" class="form-control" placeholder="Search">
-			  </div>
-			  <button type="submit" class="btn btn-default">Submit</button>
-			</form>
-  			<h1>Welcome to my store </h1>
+    	
+	    <div class="container">
+	      	<? include '../inc/header.php';?> 	<!-- Header -->		
+	        <? include '../inc/nav.php';?>		<!-- Navigation Menu Bar-->	
 		</div>
- 
-		 <? include '../inc/nav.php';?>	
-		   
+ 		   
 		<div class="container">
-			
-      		<? include $view; ?><br/>	
-  
-      <!-- FOOTER -->
-      <legend> </legend>
-      <footer>
-		<ul class="nav nav-pills">
-			 <li><a href="#">Contact</a></li>
-		  	 <li><a href="#">Carrer</a></li>
-		  	 <li><a href="#">About</a></li>
-			 <li><a href="#">Store Location</a></li>
-		</ul>
-      </footer>
-
-    </div><!-- /.container -->
+      		<? include $view; ?><br/>				<!-- Display table-->
+      		<? include '../inc/footer.php';?>		<!-- footer-->
+   		 </div><!-- /.container -->
 
 
     <!-- Bootstrap core JavaScript
