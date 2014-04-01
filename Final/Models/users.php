@@ -39,12 +39,12 @@
 		$conn = GetConnection();
 		$row = escape_all($row, $conn);
 		
-		if (isset($row['id']))
+		if (!empty($row['id']))
 		{
 			$sql = "Update 2014Spring_Users
 						Set FirstName='$row[FirstName]', 
 							LastName='$row[LastName]',
-							Username='$row[Username]',
+							Username='$row[Username]', 
 							Password='$row[Password]', 
 							fbid='$row[fbid]', 
 							UserType='$row[UserType]'

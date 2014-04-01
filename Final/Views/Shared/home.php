@@ -18,10 +18,12 @@
 	<link href="../inc/bootstrap/docs/examples/carousel/carousel.css" rel="stylesheet">
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/docs/examples/carousel/carousel.css" rel="stylesheet">
 
-        <style type="text/css">
-     /* Move down content because we have a fixed navbar that is 50px tall */
+    <style type="text/css">
+  
+     .thumbnails img { min-height:100px; height:100px; }
     </style>
   </head>
+  
   <? include '../inc/tableStyle.php';?>
 	<!-- NAVBAR ================================================== -->
   <body>
@@ -97,10 +99,10 @@
           <div class="row-fluid">
             <ul class="thumbnails">
             	
-              <div class="col-md-4"  height="42">
+              <div class="col-md-4" >
                 <div class="thumbnail">
                   <!--<img data-src="holder.js/300x200" alt="">-->
-                  <img src="../inc/image/iPadAirSingle.png" alt="iPadAir" /> 
+                  <img src="../inc/image/iPadAirSingle.png" alt="iPadAir" />
                   <div class="caption">
                     <h3>New: iOS 7.5</h3>
 	                    <p>Apple's just announced the $499 iPad Air at its event today in
@@ -117,7 +119,7 @@
               <div class="col-md-4">
                 <div class="thumbnail">
                   <!--<img data-src="holder.js/300x200" alt="">-->
-                  <img src="../inc/image/macBookPro2013.jpg" alt="Microsoft Tablet" /></br> 
+                  <img src="../inc/image/macBookPro2013.jpg" alt="Microsoft Tablet" />
                   <div class="caption">
                     <h3>New: MacBookPro </h3>
                      <p>The second generation of Apple's Retina-screen MacBook Pro 
