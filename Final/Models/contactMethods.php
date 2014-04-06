@@ -13,17 +13,13 @@
 					
 			if($id == null)
 			{
-				// echo $sql;
-				// print_r($sql);
-				// Get all records
 				return fetch_all($sql);
 			}
 			else 
 			{
 				// Get one record
 				$sql .= " WHERE C.id = $id ";
-				// echo $sql;
-				// print_r($sql);
+
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
 					return $results[0];
@@ -38,27 +34,34 @@
 		}
 	
 	
-		static public function Save($row)
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
+			$row2 = escape_all($row, $conn);
+			
 			if (!empty($row['id'])) 
 			{
 				$sql = "Update 2014Spring_ContactMethods
-							Set ContactMethodType='$row[ContactMethodType]', 
-								Value='$row[Value]',
-								User_id='$row[User_id]'
-							WHERE id = $row[id]";
+							Set ContactMethodType='$row2[ContactMethodType]', 
+								Value='$row2[Value]',
+								User_id='$row2[User_id]'
+							WHERE id = $row2[id]";
 			}
 			else
 			{
 				$sql = "INSERT INTO 2014Spring_ContactMethods (ContactMethodType, Value, User_id)
-					    VALUES ('$row[ContactMethodType]', '$row[Value]','$row[User_id]' ) ";	
+					    VALUES ('$row2[ContactMethodType]', '$row2[Value]','$row2[User_id]' ) ";	
 				
 			}
 	
 			//echo $sql;
 			$results = $conn->query($sql);
 			$error = $conn->error;
+			if(!$error && empty($row['id']))			// Add if statement
+			{
+				$row['id'] = $conn->insert_id;
+	
+			}
 			$conn->close();
 			
 			return $error ? array ('sql error' => $error) : false;

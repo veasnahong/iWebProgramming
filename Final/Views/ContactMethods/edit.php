@@ -26,14 +26,14 @@
 		<div class="form-group <?if(!empty($errors['ContactMethodType'])) echo 'has-error has-feedback' ?> ">
 			<label for="ContactMethodType">Contact Method Type:</label>
 			<!-- <input class="form-control" type="text" name="ContactMethodType" id="ContactMethodType" value="<?=$model['ContactMethodType']?>" placeholder="Contact Method Type" /> -->
-			
-			<select class="form-control"class="col-md-4" input id="ContactMethodType" name="ContactMethodType" type="text" value="<?=$model['ContactMethodType']?>"placeholder="Contact Method Type" />
-			      <option>10</option>
-				  <option>11</option>
-				  <option>12</option>
-				  <option>13</option>
-			</select> 
-			
+			<select size="1" class="required form-control" name="ContactMethodType" id="ContactMethodType" value="<?=$model['ContactMethodType']?>">
+				<option value="">Select Contact Method</option>
+				<? foreach (Keywords::SelectListFor(3) as $row): ?>
+					<option <?if($row['id'] == $model['ContactMethodType']) echo 'selected'; ?> value="<?=$row['id']?>">
+						<?=$row['Name']?>
+					</option>
+				<? endforeach; ?>
+			</select>
 			<? if(!empty($errors['ContactMethodType'])): ?>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				<span><?=$errors['ContactMethodType']?></span>

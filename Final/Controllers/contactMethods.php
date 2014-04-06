@@ -14,6 +14,7 @@
 			$model = ContactMethods::Get($_REQUEST['id']);
 			break;
 		case 'save':
+			$sub_action = empty($_REQUEST['id']) ? 'created' : 'updated';  // If it empty it created otherwise updated
 			$errors = ContactMethods::Validate($_REQUEST);
 			if(!$errors)
 			{
@@ -21,7 +22,7 @@
 			}
 		if(!$errors)
 		{
-			header("Location: ?");
+			header("Location: ?sub_action=$sub_action&id=$_REQUEST[id]");	// Header
 			die();
 		}
 		else

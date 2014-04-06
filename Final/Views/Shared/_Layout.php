@@ -57,10 +57,10 @@
 		})
 	</script>
  	<?
-     if(function_exists("JavaScripts"))
-     {
-     	JavaScripts();
-     }
+	     if(function_exists("JavaScripts"))
+	     {
+	     	JavaScripts();
+	     }
     ?>
   </body>
 </html>

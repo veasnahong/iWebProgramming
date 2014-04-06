@@ -70,15 +70,15 @@
 		
 		<div class="form-group <?if(!empty($errors['Catergory_Keyword_id'])) echo 'has-error has-feedback' ?> ">
 			<label for="Catergory_Keyword_id">Catergory Keyword ID:</label>
-			<input class="form-control" type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" placeholder="Catergory Keyword ID" /> 
-				<!--<select class="form-control"class="col-md-4" input id="Catergory_Keyword_id" name="Catergory_Keyword_id" type="text" value="<?=$model['Catergory_Keyword_id']?> placeholder="Catergory Keyword ID"">
-			      <option>17</option>
-				  <option>18</option>
-				  <option>19</option>
-				  <option>20</option>
-				  <option>21</option>
-				  <option>22</option>
-				</select> -->
+			<!--<input class="form-control" type="text" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>" placeholder="Catergory Keyword ID" />--> 
+			<select size="1" class="required form-control" name="Catergory_Keyword_id" id="Catergory_Keyword_id" value="<?=$model['Catergory_Keyword_id']?>">
+				<option value="">Select Product Catergory</option>
+				<? foreach (Keywords::SelectListFor(5) as $row): ?>
+					<option <?if($row['id'] == $model['Catergory_Keyword_id']) echo 'selected'; ?> value="<?=$row['id']?>">
+						<?=$row['Name']?>
+					</option>
+				<? endforeach; ?>
+			</select>
 			<? if(!empty($errors['Catergory_Keyword_id'])): ?>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
 				<span><?=$errors['Catergory_Keyword_id']?></span>

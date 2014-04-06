@@ -9,17 +9,12 @@
 			FROM 2014Spring_Users U Join 2014Spring_Keywords K ON U.UserType = K.id";
 			if($id == null)
 			{
-				// echo $sql;
-				// print_r($sql);
-				// Get all records
 				return fetch_all($sql);
 			}
 			else 
 			{
 				// Get one record
 				$sql .= " WHERE U.id = $id ";
-				// echo $sql;
-				// print_r($sql);
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
 					return $results[0];
@@ -34,31 +29,37 @@
 		}
 	
 	
-	static public function Save($row)
+	static public function Save(&$row)			//Add & row
 	{
 		$conn = GetConnection();
-		$row = escape_all($row, $conn);
+		$row2 = escape_all($row, $conn);		//Add new line
 		
 		if (!empty($row['id']))
-		{
-			$sql = "Update 2014Spring_Users
-						Set FirstName='$row[FirstName]', 
-							LastName='$row[LastName]',
-							Username='$row[Username]', 
-							Password='$row[Password]', 
-							fbid='$row[fbid]', 
-							UserType='$row[UserType]'
-						WHERE id = $row[id]";
+		{										// Change row to row2
+			$sql = "Update 2014Spring_Users						
+						Set FirstName='$row2[FirstName]', 
+							LastName='$row2[LastName]',
+							Username='$row2[Username]', 
+							Password='$row2[Password]', 
+							fbid='$row2[fbid]', 
+							UserType='$row2[UserType]'
+						WHERE id = $row2[id]";
 		}
 		else
 		{
 			$sql = "INSERT INTO 2014Spring_Users (FirstName, LastName,Username, Password, fbid, UserType)
-					VALUES ('$row[FirstName]', '$row[LastName]', '$row[Username]', '$row[Password]', '$row[fbid]', '$row[UserType]' ) ";	
+					VALUES ('$row2[FirstName]', '$row2[LastName]', '$row2[Username]', '$row2[Password]', '$row2[fbid]', '$row2[UserType]' ) ";	
 		}
 	
 		//echo $sql;
 		$results = $conn->query($sql);
 		$error = $conn->error;
+		
+		if(!$error && empty($row['id']))			// Add if statement
+		{
+			$row['id'] = $conn->insert_id;
+
+		}
 		$conn->close();
 		
 		return $error ? array ('sql error' => $error) : false;
@@ -86,7 +87,12 @@
 		return count($errors) > 0 ? $errors : false ;
 	}
 	
+	public static function SelectListFor($TypeUser) 
+	{
+		$sql = "SELECT id, Name FROM 2014Spring_Users WHERE id = $TypeUser ";
+		return fetch_all($sql);
 	}
+}
 	
 	
 		

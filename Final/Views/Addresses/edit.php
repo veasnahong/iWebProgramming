@@ -15,6 +15,7 @@
 		<div class="form-group <?if(!empty($errors['Users_id'])) echo 'has-error has-feedback' ?> ">
 			<label class="control-label" for="Users_id">User ID:</label>
 			<input class="form-control" type="text" name="Users_id" id="Users_id" value="<?=$model['Users_id']?>" placeholder="User ID" />
+		
 			
 			<? if(!empty($errors['Users_id'])): ?>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -24,7 +25,15 @@
 		
 		<div class="form-group <?if(!empty($errors['AddressType'])) echo 'has-error has-feedback' ?> ">
 			<label for="AddressType">Address Type:</label>
-			<input class="form-control" type="text" name="AddressType" id="AddressType" value="<?=$model['AddressType']?>" placeholder="Address Type" />
+			<!--<input class="form-control" type="text" name="AddressType" id="AddressType" value="<?=$model['AddressType']?>" placeholder="Address Type" />-->
+			<select size="1" class="required form-control" name="AddressType" id="UserType" value="<?=$model['AddressType']?>">
+				<option value="">Select Address Type</option>
+				<? foreach (Keywords::SelectListFor(4) as $row): ?>
+					<option <?if($row['id'] == $model['AddressType']) echo 'selected'; ?> value="<?=$row['id']?>">
+						<?=$row['Name']?>
+					</option>
+				<? endforeach; ?>
+			</select>
 			
 			<? if(!empty($errors['AddressType'])): ?>
 				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -89,6 +98,15 @@
 				<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
 			</div>
 		</div><br>
-			
 	</form>
+	<? function JavaScripts(){ global $model; ?>
+			<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+			<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					$("form").validate();
+					$("#UserType").val(<?=$model['AddressType']?>);
+				})
+			</script>
+		<? } ?>
 	

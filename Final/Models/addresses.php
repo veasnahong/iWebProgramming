@@ -34,27 +34,27 @@
 		}
 	
 	
-		static public function Save($row)
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
-			
+			$row2 = escape_all($row, $conn);
 			
 			if (!empty($row['id'])) 
 			{
 				$sql = "Update 2014Spring_Addresses
-							Set Users_id='$row[Users_id]', 
-								AddressType='$row[AddressType]',
-								Addresses='$row[Addresses]',
-								City='$row[City]', 
-								State='$row[State]', 
-								Zip='$row[Zip]',
-								Country='$row[Country]'
-							WHERE id = $row[id]";
+							Set Users_id='$row2[Users_id]', 
+								AddressType='$row2[AddressType]',
+								Addresses='$row2[Addresses]',
+								City='$row2[City]', 
+								State='$row2[State]', 
+								Zip='$row2[Zip]',
+								Country='$row2[Country]'
+							WHERE id = $row2[id]";
 			}
 			else
 			{
 				$sql = "INSERT INTO 2014Spring_Addresses (Users_id, AddressType, Addresses, City, State, Zip, Country)
-					VALUES ('$row[Users_id]', '$row[AddressType]', '$row[Addresses]', '$row[City]', '$row[State]', '$row[Zip]', '$row[Country]' ) ";	
+					VALUES ('$row2[Users_id]', '$row2[AddressType]', '$row2[Addresses]', '$row2[City]', '$row2[State]', '$row2[Zip]', '$row2[Country]' ) ";	
 				
 			}
 		
@@ -62,6 +62,12 @@
 			//echo $sql;
 			$results = $conn->query($sql);
 			$error = $conn->error;
+			
+			if(!$error && empty($row['id']))
+			{
+				$row['id'] = $conn->insert_id;
+	
+			}
 			$conn->close();
 			
 			return $error ? array ('sql error' => $error) : false;
@@ -69,7 +75,7 @@
 			
 			static public function Blank()
 			{
-			return array( 'id' => null);
+				return array( 'id' => null);
 			}
 			
 			static public function Delete($id)

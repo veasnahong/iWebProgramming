@@ -13,4 +13,4 @@
 	include_once __DIR__ . '/../Models/service.php';
 	include_once __DIR__ . '/../Models/deals.php';
 	include_once __DIR__ . '/../Models/myshop.php';
-	include_once __DIR__ . '/../Models/CheckOrder.php';
+	include_once __DIR__ . '/../Models/checkOrderStatus.php';

@@ -127,8 +127,8 @@
                      	graphics card, and CPU. The result is a faster laptop with 
                      	better battery life and a lower starting price.
                      	The slimmer body and higher-res screen of the original 
-                     	Retina MacBook Pro were a revolutionary leap.
-                     	This modest internal upgrades for modest improvements. 
+                     	Retina MacBook Pro were a revolutionary leap.The best laptop. 
+                     	Don't miss this opportunity cost.
                      </p>
                     <p><a href="#" class="btn btn-primary">$1299.99</a> 
                   </div>

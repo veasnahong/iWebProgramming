@@ -38,26 +38,32 @@
 		}
 	
 	
-		static public function Save($row)
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
-
+			$row2 = escape_all($row, $conn);		//Add new line
+			
 			if (!empty($row['id'])) 
 			{
 				$sql = "Update 2014Spring_Order_Items
-							Set Order_id='$row[Order_id]', 
-								Product_id='$row[Product_id]'
-							WHERE id = $row[id]";
+							Set Order_id='$row2[Order_id]', 
+								Product_id='$row2[Product_id]'
+							WHERE id = $row2[id]";
 			}
 			else
 			{
 				$sql = "INSERT INTO 2014Spring_Order_Items (Order_id, Product_id)
-					VALUES ('$row[Order_id]', '$row[Product_id]') ";	
+					VALUES ('$row2[Order_id]', '$row2[Product_id]') ";	
 			}
 	
 			//echo $sql;
 			$results = $conn->query($sql);
 			$error = $conn->error;
+			if(!$error && empty($row['id']))			// Add if statement
+			{
+				$row['id'] = $conn->insert_id;
+	
+			}
 			$conn->close();
 			
 			return $error ? array ('sql error' => $error) : false;
