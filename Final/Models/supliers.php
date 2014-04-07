@@ -10,17 +10,12 @@
 			
 			if($id == null)
 			{
-				// echo $sql;
-				// print_r($sql);
-				// Get all records
 				return fetch_all($sql);
 			}
 			else 
 			{
 				// Get one record
 				$sql .= " WHERE id = $id ";
-				// echo $sql;
-				// print_r($sql);
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
 					return $results[0];
@@ -29,26 +24,24 @@
 				{
 					return null;
 				}
-			}
-			
-			
+			}			
 		}
 	
-	
-		static public function Save($row)
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
+			$row2 = escape_all($row, $conn);		//Add new line
 			
 			if (!empty($row['id'])) 
 			{
 				$sql = "Update 2014Spring_Supliers
-						Set Name='$row[Name]' 
-						WHERE id = $row[id]";
+						Set Name='$row2[Name]' 
+						WHERE id = $row2[id]";
 			}
 			else
 			{
 				$sql = "INSERT INTO 2014Spring_Supliers (Name)
-						VALUES ('$row[Name]') ";	
+						VALUES ('$row2[Name]') ";	
 				
 			}
 		
@@ -56,6 +49,11 @@
 			//echo $sql;
 			$results = $conn->query($sql);
 			$error = $conn->error;
+			if(!$error && empty($row['id']))			// Add if statement
+			{
+				$row['id'] = $conn->insert_id;
+	
+			}
 			$conn->close();
 			
 			return $error ? array ('sql error' => $error) : false;

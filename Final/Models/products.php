@@ -31,31 +31,36 @@
 		}
 	}
 	
-		static public function Save($row)
+		static public function Save(&$row)
 		{
 			$conn = GetConnection();
-		
+			$row2 = escape_all($row, $conn);		//Add new line
 				if (!empty($row['id'])) 
 				{
 					$sql = "Update 2014Spring_Products
-								Set Suplier_id='$row[Suplier_id]', 
-									Name='$row[Name]',
-									Price='$row[Price]',
-									Picture_Url='$row[Picture_Url]', 
-									Description='$row[Description]', 
-									Catergory_Keyword_id='$row[Catergory_Keyword_id]'
-							WHERE id = $row[id]";
+								Set Suplier_id='$row2[Suplier_id]', 
+									Name='$row2[Name]',
+									Price='$row2[Price]',
+									Picture_Url='$row2[Picture_Url]', 
+									Description='$row2[Description]', 
+									Catergory_Keyword_id='$row2[Catergory_Keyword_id]'
+							WHERE id = $row2[id]";
 				}
 				else
 				{
 					$sql = "INSERT INTO 2014Spring_Products (Suplier_id, Name, Price, Picture_Url, Description, Catergory_Keyword_id) 
-							VALUES ('$row[Suplier_id]','$row[Name]','$row[Price]', '$row[Picture_Url]','$row[Description]','$row[Catergory_Keyword_id]')";	
+							VALUES ('$row2[Suplier_id]','$row2[Name]','$row2[Price]', '$row2[Picture_Url]','$row2[Description]','$row2[Catergory_Keyword_id]')";	
 					
 				}
 	
 				//echo $sql;
 				$results = $conn->query($sql);
 				$error = $conn->error;
+				if(!$error && empty($row['id']))			// Add if statement
+				{
+					$row['id'] = $conn->insert_id;
+		
+				}
 				$conn->close();
 			
 				return $error ? array ('sql error' => $error) : false;

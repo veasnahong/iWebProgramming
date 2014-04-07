@@ -56,7 +56,7 @@
 				                <li><a href="../Controllers/addresses.php">Addresses</a></li>
 				                <li><a href="../Controllers/contactMethods.php">ContactMethods</a></li> 
 				                <li><a href="../Controllers/keywords.php">Keywords</a></li>
-				                <li><a href="../Controllers/order_items.php">OrderItems</a></li>
+				                <li><a href="../Controllers/order_items.php">Order Items</a></li>
 				                <li><a href="../Controllers/orders.php">Orders</a></li>
 				                <li><a href="../Controllers/product_keywords.php">ProductKeywords</a></li>
 				                <li><a href="../Controllers/products.php">Products</a></li>
