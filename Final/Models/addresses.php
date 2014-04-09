@@ -80,9 +80,15 @@
 			
 			static public function Delete($id)
 			{
-			
+				$conn = GetConnection();
+				$sql = "DELETE FROM 2014Spring_Addresses WHERE id = $id";
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
-			
 			static public function Validate($row)
 			{
 				if(empty($row['Users_id'])) $errors['Users_id'] = "is required";

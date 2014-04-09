@@ -7,13 +7,13 @@
 		{
 			$sql = "SELECT U.*, K.Name as UserType_Name
 			FROM 2014Spring_Users U Join 2014Spring_Keywords K ON U.UserType = K.id";
+			
 			if($id == null)
 			{
 				return fetch_all($sql);
 			}
 			else 
-			{
-				// Get one record
+				{
 				$sql .= " WHERE U.id = $id ";
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
@@ -23,11 +23,8 @@
 				{
 					return null;
 				}
-			}
-			
-			
+			}	
 		}
-	
 	
 	static public function Save(&$row)			//Add & row
 	{
@@ -50,19 +47,18 @@
 			$sql = "INSERT INTO 2014Spring_Users (FirstName, LastName,Username, Password, fbid, UserType)
 					VALUES ('$row2[FirstName]', '$row2[LastName]', '$row2[Username]', '$row2[Password]', '$row2[fbid]', '$row2[UserType]' ) ";	
 		}
-	
-		//echo $sql;
-		$results = $conn->query($sql);
-		$error = $conn->error;
-		
-		if(!$error && empty($row['id']))			// Add if statement
-		{
-			$row['id'] = $conn->insert_id;
-
-		}
-		$conn->close();
-		
-		return $error ? array ('sql error' => $error) : false;
+			//echo $sql;
+			$results = $conn->query($sql);
+			$error = $conn->error;
+			
+			if(!$error && empty($row['id']))
+			{
+				$row['id'] = $conn->insert_id;
+			}
+			
+			$conn->close();
+			
+			return $error ? array ('sql error' => $error) : false;
 	}
 	
 	static public function Blank()
@@ -72,7 +68,14 @@
 	
 	static public function Delete($id)
 	{
-	
+		$conn = GetConnection();
+		$sql = "DELETE FROM 2014Spring_Users WHERE id = $id";
+		//echo $sql;
+		$results = $conn->query($sql);
+		$error = $conn->error;
+		$conn->close();
+		
+		return $error ? array ('sql error' => $error) : false;
 	}
 	
 	static public function Validate($row)
@@ -87,11 +90,7 @@
 		return count($errors) > 0 ? $errors : false ;
 	}
 	
-	public static function SelectListFor($TypeUser) 
-	{
-		$sql = "SELECT id, Name FROM 2014Spring_Users WHERE id = $TypeUser ";
-		return fetch_all($sql);
-	}
+
 }
 	
 	

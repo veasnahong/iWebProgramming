@@ -34,10 +34,19 @@
 		}
 		break;
 		case 'delete':
+			if($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				//Promt
+				$model = Addresses::Get($_REQUEST['id']);
+			}
+			else
+			{	
+				$errors = Addresses::Delete($_REQUEST['id']);
+			}
 			break;
 			default:
-			$model = Addresses::Get();
-		if($view == null) $view = 'index';
+				$model = Addresses::Get();
+				if($view == null) $view = 'index';
 	}
 	
 	switch ($addresses)
