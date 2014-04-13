@@ -11,12 +11,12 @@
     <title>Home</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
    
     <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="bootstrap/docs/examples/carousel/carousel.css" rel="stylesheet">
+    <!-- <link href="bootstrap/docs/examples/carousel/carousel.css" rel="stylesheet"> -->
         <style type="text/css">
      /* Move down content because we have a fixed navbar that is 50px tall */
     </style>
@@ -42,10 +42,10 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bootstrap/dist/js/bootstrap.js"></script>
     <script src="bootstrap/docs/assets/js/docs.min.js"></script>
-    
+     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
     

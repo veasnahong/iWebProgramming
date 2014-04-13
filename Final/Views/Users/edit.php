@@ -1,13 +1,18 @@
 	
 	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
 	
-	<legend><h2>Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h2></legend>
+		 	 <div class="modal-header">
+		        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+		        <h4 class="modal-title">Edit: <?=$model['FirstName']?> <?=$model['LastName']?></h4>
+		     </div>
 	
-		<ul class="error">
-			<? foreach ($errors as $key => $value): ?>
-			<li><b><?=$key?>:</b> <?=$value?></li>
-			<? endforeach; ?>
-		</ul>
+	
+			<ul class="error">
+				<? foreach ($errors as $key => $value): ?>
+					<li><b><?=$key?>:</b> <?=$value?></li>
+				<? endforeach; ?>
+			</ul>
+			
 		<form action="?action=save" method="post" class="my-horizontal">
 			<input type="hidden" name="id" value="<?=$model['id']?>" />
 	
@@ -51,28 +56,34 @@
 				<label class="control-label" for="fbid">Facebook ID:</label>
 				<input class="form-control" type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" placeholder="Facebook ID" />
 			</div>
-			
+		
 			<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
 				<label class="control-label" for="UserType">User Type:</label>
+				
 				<select size="1" class="required form-control" name="UserType" id="UserType" value="<?=$model['UserType']?>">
-					<option value="">Select User Type</option>
+					<option value="">--User Type--</option>
 					<? foreach (Keywords::SelectListFor(2) as $row): ?>
 						<option <?if($row['id'] == $model['UserType']) echo 'selected'; ?> value="<?=$row['id']?>">
 							<?=$row['Name']?>
 						</option>
 					<? endforeach; ?>
 				</select>
+				
 				<? if(isset($errors['UserType'])): ?>
-				<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-				<span ><?=$errors['UserType']?></span>
+					<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+					<span ><?=$errors['UserType']?></span>
 				<? endif ?>
 			</div>
-			
+							
 			<div class="form-group">
-				<legend> </legend>
+				<!-- <legend> </legend> -->
 				<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
 				<div class="col-md-2">
-					<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
+					  <div class="modal-footer>
+						<label class="control-label"></label>
+						<input class="btn btn-primary" type="submit" value="Save" />
+						<a href="?" data-dismiss="modal">Cancel</a>
+				      </div>
 				</div>
 			</div><br>
 		</form>

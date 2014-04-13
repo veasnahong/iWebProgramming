@@ -74,9 +74,9 @@
 				               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 				              		<span class="glyphicon glyphicon-cog"></span>Account</a>
 					              <ul class="dropdown-menu">
-					                <li><a href="../Controllers/checkOrder.php">Check Order Status</a></li>
+					                <li><a href="../Controllers/checkOrderStatus.php">Check Order Status</a></li>
 					                <li><a href="createAccount.php">Return Items</a></li> 
-					                <li><a href="../Controllers/checkOrder.php">Cancel Items</a></li>
+					                <li><a href="../Controllers/checkOrderStatus.php">Cancel Items</a></li>
 					                <li><a href="createAccount.php">View Account</a></li> 
 					                
 					                <li class="divider"></li>
