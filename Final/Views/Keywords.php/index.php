@@ -1,35 +1,48 @@
+
+	<?
+		@$id = $_REQUEST['id'];
+	?>
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.min.css">
 	<h2>
 		List of Keywords
 	</h2>
-	<table class="table table-striped table-bordered table-hover">
+	</link>
+
+	<a ref ="?action=new">Create New </a>
+
+	<table class="table">
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>Created_At</th>
-				<th>Updated_At</th>
-				<th>Parent_ID</th>
-				<th>Name</th>
-				<th>Edit</th>
+				<th>PID</th>
+				<th>ParentKeyword</th>
+				<th>CID</th>
+				<th>ChildKeyword</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
 			<? foreach ($model as $row): ?>
 				<tr>
-					<td><?=$row['id']?></td>
-					<td><?=$row['created_at']?></td>
-					<td><?=$row['updated_at']?></td>
-					<td><?=$row['Parent_id']?></td>
-					<td><?=$row['Name']?></td>
-					<td>
-						<div class="btn-group">
-							<a class="btn btn-sm btn-default glyphicon glyphicon-edit" title="Edit" href="?action=edit&id=<?=$row['id']?>"></a>
-							<a class="btn btn-sm btn-default glyphicon glyphicon-eye-open" title="Details" href="?action=edit&id=<?=$row['id']?>"></a>
-							<a class="btn btn-sm btn-default glyphicon glyphicon-trash" title="Delete" href="?action=edit&id=<?=$row['id']?>"></a>
-						</div>
-					</td>
-					
+					<td><?=$row['PID']?></td>
+					<td><?=$row['Parent_Keyword']?></td>
+					<td><?=$row['CID']?></td>
+					<td><?=$row['Child_Keyword']?></td>
 				</tr>
 			<? endforeach; ?>
 		</tbody>
+		
+		<thead>
+			
+		</thead>
+			
 	</table>
+	
+	<? function JavaScripts(){ ?>
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+		<script type="text/javascript">
+			// Always call jQuery function inside javascripts after it initialize properly
+			$(function(){
+			  $(".table").dataTable()
+			})			
+		</script>
+	<? } ?>

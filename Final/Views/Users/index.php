@@ -1,4 +1,4 @@
-<?
+	<?
 		@$id = $_REQUEST['id'];
 	?>
 	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.min.css" />
@@ -40,8 +40,8 @@
 				<tr class="<?=$id==$row['id'] ? "highlighted" : "" ?>">
 					<td><?=$row['id']?></td>
 					<td><?=$row['FirstName']?></td>
-					<td><?=$row['Username']?></td>
 					<td><?=$row['LastName']?></td>
+					<td><?=$row['Username']?></td>
 					<td><?=$row['Password']?></td>
 					<td><?=$row['fbid']?></td>
 					<td><?=$row['UserType_Name']?></td>
