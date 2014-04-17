@@ -9,17 +9,12 @@
 					FROM 2014Spring_Addresses A Join 2014Spring_Users U ON A.Users_id = U.id Join 2014Spring_Keywords K ON A.AddressType = K.id";
 			if($id == null)
 			{
-				// echo $sql;
-				// print_r($sql);
-				// Get all records
 				return fetch_all($sql);
 			}
 			else 
 			{
 				// Get one record
 				$sql .= " WHERE A.id = $id ";
-				// echo $sql;
-				// print_r($sql);
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
 					return $results[0];
@@ -32,8 +27,6 @@
 			
 			
 		}
-	
-	
 		static public function Save(&$row)
 		{
 			$conn = GetConnection();
@@ -57,20 +50,18 @@
 					VALUES ('$row2[Users_id]', '$row2[AddressType]', '$row2[Addresses]', '$row2[City]', '$row2[State]', '$row2[Zip]', '$row2[Country]' ) ";	
 				
 			}
-		
-	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			
-			if(!$error && empty($row['id']))
-			{
-				$row['id'] = $conn->insert_id;
-	
-			}
-			$conn->close();
-			
-			return $error ? array ('sql error' => $error) : false;
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				
+				if(!$error && empty($row['id']))
+				{
+					$row['id'] = $conn->insert_id;
+				}
+				
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Blank()
@@ -82,7 +73,6 @@
 			{
 				$conn = GetConnection();
 				$sql = "DELETE FROM 2014Spring_Addresses WHERE id = $id";
-				//echo $sql;
 				$results = $conn->query($sql);
 				$error = $conn->error;
 				$conn->close();

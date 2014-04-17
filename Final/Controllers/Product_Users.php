@@ -12,16 +12,15 @@
 			$view = 'edit';
 			break;
 		case 'edit':
-			$model = ContactMethods::Get($_REQUEST['id']);
+			$model = Users::Get($_REQUEST['id']);
 			
 			break;
-			
 		case 'save':
 			$sub_action = empty($_REQUEST['id']) ? 'created' : 'updated';  // If it empty it created otherwise updated
-			$errors = ContactMethods::Validate($_REQUEST);
+			$errors = Users::Validate($_REQUEST);
 			if(!$errors)
 			{
-				$errors = ContactMethods::Save($_REQUEST);
+				$errors = Users::Save($_REQUEST);
 			}
 		if(!$errors)
 		{
@@ -35,20 +34,19 @@
 			$view = 'edit';
 		}
 		break;
-		
 		case 'delete':
 			if($_SERVER['REQUEST_METHOD'] == 'GET')
 			{
-				$model = ContactMethods::Get($_REQUEST['id']);
+				$model = Users::Get($_REQUEST['id']);
 			}
 			else
 			{
-				$errors = ContactMethods::Delete($_REQUEST['id']);
+				$errors = Users::Delete($_REQUEST['id']);
 				
 			}
 			break;
 		default:
-		$model = ContactMethods::Get();
+		$model = Users::Get();
 		if($view == null) $view = 'index';
 	}
 				
@@ -60,11 +58,11 @@
 			break;
 	
 		case 'plain':
-			include __DIR__ . "/../Views/ContactMethods/$view.php";	
+			include __DIR__ . "/../Views/Users/$view.php";	
 			break;
 			default:
 			
-		$view = __DIR__ . "/../Views/ContactMethods/$view.php";	
+		$view = __DIR__ . "/../Views/Users/$view.php";	
 		include __DIR__ . "/../Views/Shared/_Layout.php";
 		break;
 	}

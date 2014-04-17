@@ -7,23 +7,17 @@
 		{
 			$sql = "SELECT I.*, O.User_id as Users_ID, U.Username as UserName, P.Name as ProductName
 			FROM 2014Spring_Order_Items I Join 2014Spring_Orders O ON O.User_id = I.id Join 2014Spring_Users U ON O.User_id = U.id Join 2014Spring_Products P ON I.Product_id = P.id";
-			
-			// $sql ="SELECT I.*, O.User_id as Users_ID, P.Name as ProductName
-			// FROM 2014Spring_Order_Items I Join 2014Spring_Orders O ON O.User_id = I.id Join 2014Spring_Products P ON I.Product_id = P.id";
-			
+				
 			if($id == null)
 			{
-				// echo $sql;
-				// print_r($sql);
-				// Get all records
+
 				return fetch_all($sql);
 			}
 			else 
 			{
 				// Get one record
 				$sql .= " WHERE I.id = $id ";
-				// echo $sql;
-				// print_r($sql);
+				
 				if(($results = fetch_all($sql)) && count($results) > 0)
 				{
 					return $results[0];
@@ -32,12 +26,8 @@
 				{
 					return null;
 				}
-			}
-			
-			
+			}	
 		}
-	
-	
 		static public function Save(&$row)
 		{
 			$conn = GetConnection();
@@ -56,29 +46,36 @@
 					VALUES ('$row2[Order_id]', '$row2[Product_id]') ";	
 			}
 	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			if(!$error && empty($row['id']))			// Add if statement
-			{
-				$row['id'] = $conn->insert_id;
-	
-			}
-			$conn->close();
-			
-			return $error ? array ('sql error' => $error) : false;
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				
+				if(!$error && empty($row['id']))
+				{
+					$row['id'] = $conn->insert_id;
+				}
+				
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Blank()
 			{
-			return array( 'id' => null);
+				return array( 'id' => null);
 			}
 			
 			static public function Delete($id)
 			{
-			
+				$conn = GetConnection();
+				$sql = "DELETE FROM 2014Spring_Order_Items WHERE id = $id";
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
-			
 			static public function Validate($row)
 			{
 				if(empty($row['Order_id'])) $errors['Order_id'] = "is required";

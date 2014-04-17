@@ -44,31 +44,36 @@
 						VALUES ('$row2[Name]') ";	
 				
 			}
-		
-	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			if(!$error && empty($row['id']))			// Add if statement
-			{
-				$row['id'] = $conn->insert_id;
-	
-			}
-			$conn->close();
-			
-			return $error ? array ('sql error' => $error) : false;
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				
+				if(!$error && empty($row['id']))
+				{
+					$row['id'] = $conn->insert_id;
+				}
+				
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Blank()
 			{
-			return array( 'id' => null);
+				return array( 'id' => null);
 			}
 			
 			static public function Delete($id)
 			{
-			
+				$conn = GetConnection();
+				$sql = "DELETE FROM 2014Spring_Supliers WHERE id = $id";
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
-			
 			static public function Validate($row)
 			{
 				if(empty($row['Name'])) $errors['Name'] = "is required";				

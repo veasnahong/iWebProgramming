@@ -3,7 +3,8 @@
 	include_once __DIR__ . '/../inc/allModels.php';
 	
 	@$view = $action = $_REQUEST['action'];
-	@$orders = $_REQUEST['orders'];
+	@$format = $_REQUEST['format'];
+	
 	
 	switch ($action)
 	{
@@ -12,6 +13,7 @@
 			break;
 		case 'edit':
 			$model = Orders::Get($_REQUEST['id']);
+			
 			break;
 		case 'save':
 			$sub_action = empty($_REQUEST['id']) ? 'created' : 'updated';  // If it empty it created otherwise updated
@@ -33,18 +35,34 @@
 		}
 		break;
 		case 'delete':
+			if($_SERVER['REQUEST_METHOD'] == 'GET')
+			{
+				$model = Orders::Get($_REQUEST['id']);
+			}
+			else
+			{
+				$errors = Orders::Delete($_REQUEST['id']);
+				
+			}
 			break;
-			default:
-			$model = Orders::Get();
+		default:
+		$model = Orders::Get();
 		if($view == null) $view = 'index';
 	}
-	switch ($orders)
-	 {
+				
+	switch ($format) 
+	{
+		case 'json':
+			$ret = array('success' => empty($errors), 'errors'=> $errors, 'data'=> $model);
+			echo json_encode($ret);
+			break;
+	
 		case 'plain':
 			include __DIR__ . "/../Views/Orders/$view.php";	
 			break;
 			default:
-			$view = __DIR__ . "/../Views/Orders/$view.php";	
-			include __DIR__ . "/../Views/Shared/_Layout.php";
-			break;
+			
+		$view = __DIR__ . "/../Views/Orders/$view.php";	
+		include __DIR__ . "/../Views/Shared/_Layout.php";
+		break;
 	}

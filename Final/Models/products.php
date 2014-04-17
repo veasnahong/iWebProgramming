@@ -56,13 +56,14 @@
 				//echo $sql;
 				$results = $conn->query($sql);
 				$error = $conn->error;
-				if(!$error && empty($row['id']))			// Add if statement
+				
+				if(!$error && empty($row['id']))
 				{
 					$row['id'] = $conn->insert_id;
-		
 				}
+				
 				$conn->close();
-			
+				
 				return $error ? array ('sql error' => $error) : false;
 			}
 			
@@ -73,9 +74,15 @@
 			
 			static public function Delete($id)
 			{
-			
+				$conn = GetConnection();
+				$sql = "DELETE FROM 2014Spring_Products WHERE id = $id";
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
-			
 			static public function Validate($row)
 			{
 				if(empty($row['Suplier_id'])) $errors['Suplier_id'] = "is required";

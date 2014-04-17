@@ -26,7 +26,6 @@
 					<span><?=$errors['FirstName']?></span>
 				<? endif ?>
 			</div>
-		
 			
 			<div class="form-group <?if(isset($errors['LastName'])) echo 'has-error has-feedback' ?> ">
 				<label class="control-label" for="LastName">Last Name:</label>

@@ -1,8 +1,13 @@
 	
 	<? include '../inc/tableStyle.php';?>		<!-- Table Style-->	
 	
-	<legend><h2>Edit: <?=$model['UserName']?></h2></legend>
-	
+	<legend>
+		 <div class="modal-header">
+	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
+	        <h4 class="modal-title">Edit: <?=$model['UserName']?></h4>
+	     </div>
+    </legend>
+    
 	<ul class="error">
 		<? foreach ($errors as $key => $value): ?>
 			<li><b><?=$key?>:</b> <?=$value?></li>
@@ -33,14 +38,25 @@
 		</div>
 		
 		<div class="form-group">
-			<legend> </legend>
-			<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
-			<div class="col-md-2">
-				<button id="Save" type="submit "Save" value="Save" class="btn btn-primary">Submit</button>
-			</div>
-		</div><br>
-			
-	</form>
-	
-
-	
+				<!-- <legend> </legend> -->
+				<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
+				<div class="col-md-2">
+					  <div class="modal-footer>
+						<label class="control-label"></label>
+						<input class="btn btn-primary" type="submit" value="Save" />
+						<a href="?" data-dismiss="modal">Cancel</a>
+				      </div>
+				</div>
+			</div><br>
+		</form>
+		
+		<? function JavaScripts(){ global $model; ?>
+			<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.js"></script>
+			<script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					$("form").validate();
+					$("#Order_id").val(<?=$model['Order_id']?>);
+				})
+			</script>
+		<? } ?>

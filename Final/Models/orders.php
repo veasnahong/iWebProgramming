@@ -27,10 +27,10 @@
 			
 			
 		}
-			static public function Save(&$row)
-			{
-			$conn = GetConnection();
-			$row2 = escape_all($row, $conn);		//Add new line
+		static public function Save(&$row)
+		{
+				$conn = GetConnection();
+				$row2 = escape_all($row, $conn);		//Add new line
 			
 			if (!empty($row['id'])) 
 			{
@@ -46,29 +46,35 @@
 					VALUES ('$row2[User_id]', '$row2[Address_id]' ) ";	
 				
 			}
-		
-	
-			//echo $sql;
-			$results = $conn->query($sql);
-			$error = $conn->error;
-			if(!$error && empty($row['id']))			// Add if statement
-			{
-				$row['id'] = $conn->insert_id;
-	
-			}
-			$conn->close();
-			
-			return $error ? array ('sql error' => $error) : false;
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				
+				if(!$error && empty($row['id']))
+				{
+					$row['id'] = $conn->insert_id;
+				}
+				
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Blank()
 			{
-			return array( 'id' => null);
+				return array( 'id' => null);
 			}
 			
 			static public function Delete($id)
 			{
-			
+				$conn = GetConnection();
+				$sql = "DELETE FROM 2014Spring_Orders WHERE id = $id";
+				//echo $sql;
+				$results = $conn->query($sql);
+				$error = $conn->error;
+				$conn->close();
+				
+				return $error ? array ('sql error' => $error) : false;
 			}
 			
 			static public function Validate($row)
