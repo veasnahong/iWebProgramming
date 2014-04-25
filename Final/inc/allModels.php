@@ -8,3 +8,9 @@
 	include_once __DIR__ . '/../Models/supliers.php';
 	include_once __DIR__ . '/../Models/order_items.php';
 	include_once __DIR__ . '/../Models/product_keywords.php';
+	include_once __DIR__ . '/../Models/home.php';
+	include_once __DIR__ . '/../Models/stores.php';
+	include_once __DIR__ . '/../Models/service.php';
+	include_once __DIR__ . '/../Models/deals.php';
+	include_once __DIR__ . '/../Models/myshop.php';
+	include_once __DIR__ . '/../Models/checkOrderStatus.php';

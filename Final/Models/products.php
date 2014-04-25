@@ -3,34 +3,40 @@
 	
 	class Products
 	{
-		static public function Get($id = null)
-		{
-			$sql = "SELECT P.*, K.Name as Products_Catergories
-			FROM 2014Spring_Products P Join 2014Spring_Keywords K ON P.Catergory_Keyword_id= K.id";
-			
-			if($id == null)
+			static public function Get($id = null)
 			{
-				// Get all records
-				return fetch_all($sql);
-			}
-			else 
-			{
+				$sql = "SELECT P.*, K.Name as Products_Catergories
+				FROM 2014Spring_Products P Join 2014Spring_Keywords K ON P.Catergory_Keyword_id= K.id";
 				
-			}
-			{
-			// Get one record
-			$sql .= " WHERE P.id = $id ";
-			if(($results = fetch_all($sql)) && count($results) > 0)
-			{
-				return $results[0];
-			}
-			else
-			{
-				return null;
-			}
+				if($id)
+				{
+					// Get one record
+					$sql .= " WHERE id = $id ";
+					if(($results = fetch_all($sql)) && count($results) > 0)
+					{
+						return $results[0];
+					}
+					else
+					{
+						return null;
+					}
+				}
+				elseif($category_id){
+					$sql .= " WHERE Catergory_Keyword_id = $category_id ";
+					return fetch_all($sql);
+				}
+				else
+				{
+					//	Get all records
+					return fetch_all($sql);
+				}
+			
 		}
-	}
-	
+		static public function GetCategories()
+		{
+			$sql = "SELECT * FROM 2014Spring_Product_Keywords";
+			return fetch_all($sql);
+		}
 		static public function Save(&$row)
 		{
 			$conn = GetConnection();
