@@ -29,9 +29,7 @@
 	    <div class="container">
 	      	<? include '../inc/header.php';?> 	<!-- Header -->		
 	        <? include '../inc/nav.php';?>		<!-- Navigation Menu Bar-->	
-		</div>
- 		   
-		<div class="container">
+	
       		<? include $view; ?><br/>				<!-- Display table-->
       		<? include '../inc/footer.php';?>		<!-- footer-->
    		 </div><!-- /.container -->
