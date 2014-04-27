@@ -2,10 +2,12 @@
 	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
 	
-	@$view = $action = $_REQUEST['action'];
-	@$format = $_REQUEST['format'];
-	
-	
+		@$view 		= $action = $_REQUEST['action'];
+		@$format 	= $_REQUEST['format'];
+		@$id		= $_REQUEST['id'];
+		@$category_id = $_REQUEST['category_id'];
+		$layout		= '_Layout';
+		
 	switch ($action)
 	{
 		case 'new':
@@ -45,24 +47,36 @@
 				
 			}
 			break;
-		default:
-		$model = Products::Get();
-		if($view == null) $view = 'home';
+		default:									// Controller identify whether Admin or Public
+		// $model = Products::Get();
+		// if($view == null) $view = 'home';
+		
+			if($view == null)
+			{
+				$layout = '_PublicLayout';
+				$view = 'home';
+		
+				// $view = 'index';
+				// $model = Products::Get();
+			}	
+			else
+			{
+				$view = 'index';
+				$model = Products::Get();
+			}
+			
 	}
 				
-	switch ($format) 
-	{
+	switch ($format) {
 		case 'json':
 			$ret = array('success' => empty($errors), 'errors'=> $errors, 'data'=> $model);
 			echo json_encode($ret);
 			break;
-	
 		case 'plain':
-			include __DIR__ . "/../Views/Products/$view.php";	
+			include __DIR__ . "/../Views/Products/$view.php";			
 			break;
-			default:
-			
-		$view = __DIR__ . "/../Views/Products/$view.php";	
-		include __DIR__ . "/../Views/Shared/_Layout.php";
-		break;
+		default:
+			$view = __DIR__ . "/../Views/Products/$view.php";	
+			include __DIR__ . "/../Views/Shared/$layout.php";
+			break;
 	}

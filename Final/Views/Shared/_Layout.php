@@ -8,7 +8,7 @@
 	    <meta name="description" content="">
 	    <meta name="author" content="">
 	   
-	    <title>Home</title>
+	    <title>Admin</title>
 	
 	    <!-- Bootstrap core CSS -->
 	    <!-- <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -28,8 +28,8 @@
 	    	
 		    <div class="container">
 		      	<? include '../inc/header.php';?> 	<!-- Header -->		
-		        <? include '../inc/navAdmin.php';?>		<!-- Navigation Menu Bar-->	
-	      		<? include $view;?> <br/>				<!-- Display table-->
+		        <? include '../inc/navAdmin.php';?>		<!-- Navigation Menu Bar-->	<!-- Need to change to Admin when know how to access. -->
+	      		<? include $view; ?> <br/>				<!-- Display table-->
 	      		<? include '../inc/footer.php';?>		<!-- footer-->
 	   		 </div><!-- /.container -->
 	   	</div><!-- /. Wrapper -->

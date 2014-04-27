@@ -40,19 +40,23 @@
 	
 		<div class="row" data-bind="foreach: itemList">
 			<div class=" col-md-4">
-			<div class="panel panel-info">
-			  <div class="panel-heading">
-				<code class="pull-right" data-bind="text: '$' + Price"></code>
-			    <h3 class="panel-title" data-bind="text:Name"></h3>
-			  </div>
-			  <div class="panel-body">
-					<img data-bind="attr: {src: Picture_Url}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
-					<p data-bind="text: Description"></p>
-					<a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a>
-			  </div>
-			</div>
+				<div class="panel panel-info">
+				  <div class="panel-heading">
+					<code class="pull-right" data-bind="text: '$' + Price"></code>
+				    <h3 class="panel-title" data-bind="text:Name"></h3>
+				  </div>
+				  
+				  <div class="panel-body">
+						<img data-bind="attr: {src: Picture_Url}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
+						<p data-bind="text: Description"></p>
+						<a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a>
+				  </div>
+				</div>
 			</div>
 		</div>	
+		
+<!-- Cart list -->
+
 		<div id="shopping-cart-list" class="closed" >
 			<div class="scrolling"  data-bind="foreach: cart" >
 				<div class="well well-sm clearfix">
@@ -62,7 +66,7 @@
 					$<span data-bind="text: Price"></span>
 					<button class="btn btn-warning btn-sm pull-right" data-bind="click: $root.removeFromCart">
 						<span class="glyphicon glyphicon-shopping-del"></span>
-						Remove
+						Remove Item
 					</button>
 				</div>
 			</div>
@@ -72,12 +76,13 @@
 		</div>
 	
 <!-- Shopping Cart -->
+
 	<script type="text/template" id="cart-tmpl">
 		<ul class="nav navbar-nav navbar-right ">
 			<li>
 				<button class="navbar-btn btn" data-bind="click: toggleCartList">
 					<i class="glyphicon glyphicon-shopping-cart"></i>
-					Cart
+					My Cart
 					<span class="badge label-danger" data-bind="text: cart().length">0</span>
 					</button>			
 			</li>
