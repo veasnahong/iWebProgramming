@@ -8,7 +8,12 @@
 	    <meta name="description" content="">
 	    <meta name="author" content="">
 	   
-	    <title>Admin</title>
+	    <title>Admin: &nbsp;
+	    	<?
+				$user = Accounts::GetCurrentUser();
+				echo $user['FirstName']." " .$user['LastName'];
+			?>
+	    </title>
 	
 	    <!-- Bootstrap core CSS -->
 	    <!-- <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->

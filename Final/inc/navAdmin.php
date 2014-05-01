@@ -35,12 +35,23 @@
 								<li class="<?=$value['class']?>" ><a href="<?=$value['link']?>"><?=$value['title']?></a></li>
 							<? } ?>
 							
-				   		 </ul>
+				   </ul>
+				   		 
+				   		  <ul class="nav navbar-nav navbar-right"> 
+				   		  	<li><a>Welcome: &nbsp;
+								<?
+									$user = Accounts::GetCurrentUser();
+									echo $user['FirstName']." " .$user['LastName'];
+								?>
+							</a></li>
+							
+				        </ul>	
 				   		 
 				   		 <ul class="nav navbar-nav navbar-right"> 
 							<li class="dropdown">
-				              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-				              <ul class="dropdown-menu">
+				             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+				              		<span class="glyphicon glyphicon-wrench"></span>Admin<b class="caret"></b></a>
+					              <ul class="dropdown-menu">
 				                <li><a href="../Controllers/addresses.php">Addresses</a></li>
 				                <li><a href="../Controllers/contactMethods.php">ContactMethods</a></li> 
 				                <li><a href="../Controllers/keywords.php">Keywords</a></li>
@@ -60,7 +71,7 @@
 				        <ul class="nav navbar-nav navbar-right">
 							<li class="dropdown">
 				               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-				              		<span class="glyphicon glyphicon-cog"></span>Account</a>
+				              		<span class="glyphicon glyphicon-cog"></span>Account<b class="caret"></b></a>
 					              <ul class="dropdown-menu">
 					                <li><a href="../Controllers/checkOrder.php">Check Order Status</a></li>
 					                <li><a href="createAccount.php">Return Items</a></li> 
