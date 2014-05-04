@@ -15,7 +15,7 @@
 			                <span class="icon-bar"></span>
 			                <span class="icon-bar"></span>
 			              </button>
-			              <a class="navbar-brand" href="../Controllers/home.php"><span class="glyphicon glyphicon-home"></span></a>
+			              <a class="navbar-brand" href="../Controllers/homePage.php"><span class="glyphicon glyphicon-home"></span></a>
 			             <!-- <a class="navbar-brand" href="../Controllers/store.php"></a> -->
 			              <!--a class="navbar-brand" href="./">Home</a-->
 		            </div>

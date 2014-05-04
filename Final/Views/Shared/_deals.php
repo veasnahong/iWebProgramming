@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="bootstrap/docs/assets/ico/favicon.ico">
 
-    <title>Deals</title>
+    <title>Shops & Deals</title>
 
     <!-- Bootstrap core CSS -->
  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -23,17 +23,16 @@
       <div class="container">
       	
 		<? include '../inc/header.php';?> 	<!-- Header -->		
-        <? include '../inc/navAdmin.php';?>		<!-- Navigation Menu Bar-->	
+        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
        	
-    
-
 	      <!-- Main jumbotron for a primary marketing message or call to action -->
 		      <div class="jumbotron"></br></br>
-		        <h1>Today is Clearance</h1>
-		        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+		        <h1>Today Special</h1>
+		        <p>Learn more about today special.</p>
 		        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
 		      </div>
-	
+		      
+		<? include $view; ?> <br/>			<!-- Display table-->
       	<? include '../inc/footer.php';?>		<!-- footer-->
 
 
@@ -43,7 +42,11 @@
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    
+    <?
+    	if(function_exists("JavaScripts")){
+    		JavaScripts();
+    	}
+    ?>
     <script type="text/javascript">
 		$(function(){
 			$(".deals-menu").addClass("active");

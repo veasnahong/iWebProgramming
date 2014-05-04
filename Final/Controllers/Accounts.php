@@ -6,7 +6,13 @@
 
 	@$view 		= $action = $_REQUEST['action'];
 	@$format 	= $_REQUEST['format'];
-
+	
+	if(isset($_REQUEST['access_token']))      // Facebook Login
+	{	
+		$returnUrl = !empty($_SESSION['returnUrl']) ? $_SESSION['returnUrl'] : '../Home/';
+		header("Location: $returnUrl");
+		die();
+	}
 	switch ($action)
 	{
 		default:						// Login
@@ -29,7 +35,9 @@
 				header("Location: $returnUrl");
 				die();
 			}
-		}else{
+		}
+		else
+		{
 			$model = array('email'=>null, 'password'=>null);	// If there is an error follow below code
 		}
 	}

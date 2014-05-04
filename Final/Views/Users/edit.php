@@ -73,7 +73,9 @@
 					<span ><?=$errors['UserType']?></span>
 				<? endif ?>
 			</div>
-							
+			
+			<legend> </legend> <!-- line-->	
+			
 			<div class="form-group">
 				<!-- <legend> </legend> -->
 				<label class="col-md-2 control-label" for="singlebutton">Click Submit:</label>
