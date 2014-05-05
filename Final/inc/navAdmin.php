@@ -15,7 +15,7 @@
 			                <span class="icon-bar"></span>
 			                <span class="icon-bar"></span>
 			              </button>
-			              <a class="navbar-brand" href="../Controllers/homePage.php"><span class="glyphicon glyphicon-home"></span></a>
+			              <a class="navbar-brand" href="../Controllers/index.php"><span class="glyphicon glyphicon-home"></span></a>
 			             <!-- <a class="navbar-brand" href="../Controllers/store.php"></a> -->
 			              <!--a class="navbar-brand" href="./">Home</a-->
 		            </div>
@@ -27,7 +27,7 @@
 									array('class' => 'stores-menu', 'link' => 'stores.php', 'title' => 'Stores' ),
 									array('class' => 'deals-menu', 'link' => 'deals.php', 'title' => 'Shops & Deals' ),
 									array('class' => 'myshop-menu', 'link' => 'myshop.php', 'title' => 'My Shop' ),
-									array('class' => 'service-menu', 'link' => 'service.php', 'title' => 'Service' ),
+									array('class' => 'service-menu', 'link' => 'service.php', 'title' => 'Services' ),
 									
 								);
 							?>

@@ -7,6 +7,8 @@
 		@$id		= $_REQUEST['id'];
 		@$category_id = $_REQUEST['category_id'];
 		$layout		= '_Layout';
+	
+	Accounts::RequireLogin();			// Require User Login
 		
 	switch ($action)
 	{
@@ -53,11 +55,11 @@
 		
 			if($view == null)
 			{
-				$layout = '_PublicLayout';
-				$view = 'home';
+				// $layout = '_PublicLayout';
+				// $view = 'home';
 		
-				// $view = 'index';
-				// $model = Products::Get();
+				$view = 'index';				// Display Products
+				$model = Products::Get();
 			}	
 			else
 			{

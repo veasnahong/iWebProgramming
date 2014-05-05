@@ -6,6 +6,8 @@
 	@$view = $action = $_REQUEST['action'];
 	@$productKeywords = $_REQUEST['productKeywords'];
 	
+	Accounts::RequireLogin();			// Require User Login
+	
 	switch ($action)
 	{
 		case 'create':

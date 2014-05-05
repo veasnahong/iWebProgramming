@@ -23,33 +23,8 @@
       <div class="container">
       	
       	<? include '../inc/header.php';?> 	<!-- Header -->		
-        <? include '../inc/navAdmin.php';?>		<!-- Navigation Menu Bar-->	
-        
-       
-            <div id="content">
-              <h1>What does E-Commerce Website should have?</h1>
- 				</br></br>
-	 			<p>What does E-Commerce Website should have? </br></br>
-					<a><strong> 1)  Clear Logo &#9829; </strong>: Every customer regconizes a company website by Logo.So therefore, 
-						logo is very important for an e-commerce website.</a></br>
-					<a><strong> 2)  Deals, Freebies and free shipping </strong>: When customers see there has a deal on the website it 
-						makes them feel to buy.</a></br>
-					<a><strong> 3)  Latest news and most popular products  </strong>: This is another important because it gives customers 
-						an update to the product they are looking for.</a></br>
-					<a><strong> 4)  Brand Products  </strong>: Some customers really care a lot about Bramd name. For instant, if i buy 
-						electronic device i always go with Apple, Sony, Bose and other well knowns company.</a></br>
-					<a><strong> 5)  Shopping Cart, Login Box and Search Box  </strong>:</a></br>
-					<a><strong> 6)  Payment Systems Icons </strong></a></br>
-					<a><strong> 7)  Social Media Links </strong></a></br>
-					<a><strong> 8)  Phone numbers and online chats </strong>: If there is a problem with order or product customer want to 
-						contact a customer service of that website, and if they cannot find the phone number how they are going to make a 
-						purchase. So this is another important for e-commerce website.</a></br>
-					<a><strong> 9)  Store Finder </strong></a></br>
-					<a><strong> 10) Trustmarks </strong>: Many customers want to be sure that the site they enter is safe. So if they 
-						see that the company website has the Trustmarks it makes feel better and stay in the site to find stuff they 
-						want to buy.</a></br></br>
-				</p>
-
+        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
+            
       	<? include '../inc/footer.php';?>		<!-- footer-->
 
     </div><!-- /.container -->

@@ -22,7 +22,7 @@
       <div class="container">
       	
       	<? include '../inc/header.php';?> 	<!-- Header -->		
-        <? include '../inc/navAdmin.php';?>		<!-- Navigation Menu Bar-->	
+        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
         
        
         <!-- Main jumbotron for a primary marketing message or call to action -->
