@@ -55,11 +55,12 @@
 		
 			if($view == null)
 			{
-				// $layout = '_PublicLayout';
-				// $view = 'home';
+				$layout = '_PublicLayout';
+				// $view = 'angular';
+				$view = 'home';
 		
-				$view = 'index';				// Display Products
-				$model = Products::Get();
+				// $view = 'index';				// Display Products
+				// $model = Products::Get();
 			}	
 			else
 			{

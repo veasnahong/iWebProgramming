@@ -35,5 +35,11 @@
     		JavaScripts();
     	}
     ?>
+     <script type="text/javascript">
+		$(function(){
+			$(".service-menu").addClass("active");
+		})
+		$('.dropdown-toggle').dropdown()
+	</script>
   </body>
 </html>

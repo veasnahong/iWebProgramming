@@ -1,3 +1,4 @@
+	
 	<style type="text/css">
 		.categories {
 			margin-bottom: 10px;
@@ -30,17 +31,82 @@
 			height: 30px;
 		}
 		.label-danger{ background-color: maroon; }
+		
+		/*----------------------Angular*/
+		.categories 
+		{
+			margin-bottom: 10px;
+		}
+		.label-danger{ background-color: maroon; }
+		.has-feedback .form-control-feedback {
+			top: 0px;
+			right: 15px;
+		}
 	</style>
-	
+		
 		<!-- <ul class="nav nav-pills categories" data-bind="foreach: categoryList">	// Display products by category
 		  <li data-bind="css: { active: $data == $root.currentCategory() }" >
 		  	<a href="#" data-bind="text: Products_Catergories, click: $root.selectCategory"></a>
 		  </li>
 		</ul>	 -->
 	
-		<!-- <div class="row" data-bind="foreach: itemList"> -->		
-			<div class="row" data-bind="foreach: categoryList">	 	<!-- Diplay all Products no categoty --> 
-			<div class=" col-md-4">
+		<!-- <div class="row" data-bind="foreach: itemList"> -->
+<!-- ----------------------------------------------------------------------------------------------------	 -->	
+	
+		<div ng-app="homepageApp">
+		<div ng-view></div>
+		<script type="text/ng-template" id="list">
+			<div class="row">
+				<div class="col-sm-offset-4 col-sm-4 has-feedback" id="search">
+					<input ng-model="query" type="search" class="form-control" placeholder="Search">			
+		  			<span class="glyphicon glyphicon-search form-control-feedback"></span>
+				</div></br></br></br>
+			</div>
+			<div class="row" ng-controller="ItemListCtrl" >
+	
+				<div ng-repeat="item in items | filter:query" class=" col-md-4">
+					<div class="panel panel-info">
+						  <div class="panel-heading">
+							<code class="pull-right">${{item.Price}}</code>
+						    <h3 class="panel-title">
+						    	<a href="#/item/{{item.id}}">
+						    	{{item.Name}}				    		
+						    	</a>
+						    </h3>
+						  </div>
+						  <div class="panel-body">
+						  	<a class="btn btn-success">${{item.Price}}</a>
+								<img ng-src="{{item.Picture_Url}}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
+								<p>{{item.Description}}</p>
+								
+								<!-- <a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a> -->
+						  </div>
+					</div>
+				</div>
+			</div>
+		</script>
+			
+		<!-- Details each item selected and zoom item-->
+		<script type="text/ng-template" id="details">
+			<div class="panel panel-info">
+				  <div class="panel-heading">
+					<code class="pull-right">${{item.Price}}</code>
+				    <h3 class="panel-title">{{item.Name}}</h3>
+				  </div>
+				  
+				  <div class="panel-body">
+					<img data-bind="attr: {src: Picture_Url}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
+					<p data-bind="text: Description"></p>
+					<!-- <a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a> -->
+					<a class="btn btn-success">${{item.Price}}</a>
+			  	</div>
+			</div>
+		</script>
+	</div>
+<!-- ---------------------------------------------------------------------------------------------------- -->
+		
+		<!-- <div class="row" data-bind="foreach: categoryList">	 --> 	<!-- Diplay all Products no categoty --> 
+			<!-- <div class=" col-md-4">
 				<div class="panel panel-info">
 				  <div class="panel-heading">
 					<code class="pull-right" data-bind="text: '$' + Price"></code>
@@ -55,7 +121,7 @@
 				</div>
 			</div>
 		</div>	
-		
+		 -->
 <!-- Cart list -->
 
 		<div id="shopping-cart-list" class="closed" >
@@ -121,6 +187,7 @@
 							$("#shopping-cart-list").toggleClass("closed");
 						}
 					}
+					
 					vm.cartTotal = ko.computed(function(){
 							var tot = 0;
 							$.each(vm.cart(), function(i,x){
@@ -134,6 +201,19 @@
 						.always(function (results) {
 							vm.categoryList(results.data);
 						})
+						
+					$(function(){
+				
+					});
 				});
+				
 			</script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.min.js"></script>
+			<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.3/angular-route.js"></script>
+			
+			<script src="../Content/js/controllers.js"></script>
+			<script src="../../Content/js/controllers.js"></script>
+			<script src="../../inc/header.php"></script>
+				
 		<? } ?>
+	
