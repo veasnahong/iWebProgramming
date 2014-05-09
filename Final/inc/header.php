@@ -9,7 +9,11 @@
 			
 		<header class="jumbotron">
 			<div class="container">
-				<h1 class="glyphicon glyphicon-gift">y-$tore <small>Welcome you!</small></h1>		
+				<a href="../Controllers/index.php"><h1 class="glyphicon glyphicon-gift">y-$tore</a> <small>Welcome you!</small></h1>		
+			</div></br>
+			
+			<div class="container">
+				<a href="../Controllers/deals.php"><h4>Save up to $50 <small>on select iPad and Apple products</small></h4></a>
 			</div>
 		</header>
 		

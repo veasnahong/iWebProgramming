@@ -47,17 +47,11 @@
 				
 			}
 			break;
-		default:									// Controller identify whether Admin or Public
-		// $model = Products::Get();
-		// if($view == null) $view = 'home';
-		
+		default:									// Controller identify whether Admin or Public	
 			if($view == null)
 			{
 				$layout = '_deals';
 				$view = 'home';
-				
-				// $view = 'index';
-				// $model = MyHomePage::Get();
 			}	
 			else
 			{

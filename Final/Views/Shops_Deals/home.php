@@ -3,21 +3,21 @@
 			margin-bottom: 10px;
 		}
 		#shopping-cart-list {
-			position: fixed;
-			right: 	0px;
-			top: 	20%;
+			position:fixed;
+			right: 	30%;
+			top: 	10%;
 			bottom: 20%;
-			height: 60%;
-			width: 	200px;
+			height: 80%;
+			width: 	400px;
 			background: #FFFFFF;
-			border-radius: 5px 0px 0px 5px;
+			border-radius: 5px 2px 2px 5px;
 			border: 1px solid #000;
 			padding: 5px;
 			transition: right .5s;
 			-webkit-transition: right .5s;
 		}
 		.closed#shopping-cart-list {
-			right: -200px;
+			right: -450px;
 		}
 		#shopping-cart-list .scrolling {
 			overflow-y: scroll;
@@ -124,7 +124,8 @@
 					vm.cartTotal = ko.computed(function(){
 							var tot = 0;
 							$.each(vm.cart(), function(i,x){
-								tot += +x.Price;
+								// tot += +x.Price;
+								tot = tot + x.Price;
 							})
 							return tot;
 					});

@@ -143,7 +143,7 @@
 		</div>
 	
 <!-- Shopping Cart -->
-
+	
 	<script type="text/template" id="cart-tmpl">
 		<ul class="nav navbar-nav navbar-right ">
 			<li>

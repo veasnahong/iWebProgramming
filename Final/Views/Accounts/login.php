@@ -91,14 +91,40 @@
 	    	})
 	    	fbStuff = function(){
 	    		
-	    		FB.getLoginStatus(function(response) {
+	    		FB.getLoginStatus(function(response) 
+	    		{
 				  console.log(response);
 				  
-				  if (response.status === 'connected') {
+				  if (response.status === 'connected') 
+				  {
+				  	// Get user First Name, Last Name, and Picture to display on login screen
 				    FB.api("me", function(response){
 				    	console.log(response);
 				    	$(".navbar-collapse").append("  " + "Welcome: " + response.first_name +" " +response.last_name)
 				    	$("#fb-picture").attr({src: "http://graph.facebook.com/" + response.id + "/picture"})
+				    	
+				    	// Ask user to share link on their facebook
+					    FB.ui(
+					    {
+					       method: 'feed',
+					       name: 'My $tore',
+					       caption: 'Save money live better!',
+					       description: ('Low Price Garrentied Everyday. '),
+					       link: 'http://cs.newpaltz.edu/~n01912690/iWebProgramming/Final/Controllers/index.php#/items',
+					       picture: 'http://www.fbrell.com/public/images/dogs_mythicseabass_4662963501.jpg'
+					     },
+					     function(response) {
+					        if (response && response.post_id) 
+					        {
+					          alert('Thank you for your support, and you will receive 20% OFF for your next purchase.');
+					        } 
+					        else 
+					        {
+					          alert('Post was not published.');
+					        }
+					      }
+					    );
+				   
 				    });
 				  }
 				  else {
@@ -106,23 +132,7 @@
 				  }
 				});
 				
-					FB.ui(
-				      {
-				       method: 'feed',
-				       name: 'My $tore',
-				       caption: 'Save money live better!',
-				       description: ('Low Price Garrentied Everyday. '),
-				       link: 'http://cs.newpaltz.edu/~n01912690/iWebProgramming/Final/Controllers/index.php#/items',
-				       picture: 'http://www.fbrell.com/public/images/dogs_mythicseabass_4662963501.jpg'
-				      },
-				      function(response) {
-				        if (response && response.post_id) {
-				          alert('Thank you for your support, and you will receive 20% OFF for your next purchase.');
-				        } else {
-				          alert('Post was not published.');
-				        }
-				      }
-				    );
+					
 				
 	    	}
 	    	
