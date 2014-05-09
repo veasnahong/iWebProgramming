@@ -12,7 +12,7 @@
 			background: #FFFFFF;
 			border-radius: 5px 2px 2px 5px;
 			border: 1px solid #000;
-			padding: 5px;
+			padding: 70px;
 			transition: right .5s;
 			-webkit-transition: right .5s;
 		}
@@ -72,7 +72,10 @@
 				</div>
 			</div>
 			<div>
-				Total: $ <span data-bind="text: cartTotal"></span>
+				Sub-Total: $ <span data-bind="text: cartTotal"></span>
+			</div>
+			<div>
+				Tax: $ <span data-bind="text: cartTotal"></span>
 			</div>
 		</div>
 	
@@ -124,8 +127,8 @@
 					vm.cartTotal = ko.computed(function(){
 							var tot = 0;
 							$.each(vm.cart(), function(i,x){
-								// tot += +x.Price;
-								tot = tot + x.Price;
+								tot += +x.Price;
+								// tot = tot + x.Price;
 							})
 							return tot;
 					});
