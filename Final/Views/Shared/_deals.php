@@ -29,7 +29,7 @@
 		      <div class="jumbotron"></br></br>
 		        <h1>Today Special</h1>
 		        <p>Learn more about today special.</p>
-		        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+		        <p><a href="../Controllers/service.php" class="btn btn-primary btn-lg" role="button" >Learn more &raquo;</a></p>
 		      </div>
 		      
 		<? include $view; ?> <br/>			<!-- Display table-->

@@ -14,3 +14,4 @@
 	include_once __DIR__ . '/../Models/deals.php';
 	include_once __DIR__ . '/../Models/myshop.php';
 	include_once __DIR__ . '/../Models/Accounts.php';
+	include_once __DIR__ . '/../Models/checkOut.php';

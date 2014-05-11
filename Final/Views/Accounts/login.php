@@ -27,7 +27,7 @@
 			width: 25%;
 		}
 	}
-</style>
+	</style>
 	      <div class="modal-header">
 	        <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
 	        <h4 class="modal-title">Login</h4>
@@ -40,9 +40,7 @@
 	</ul>
             	
     <form method="post" class="my-horizontal col-sm-8" >
-    	<div class="form-group">
     	
-    	</div>
 		<div class="form-group <?if(isset($errors['email'])) echo 'has-error has-feedback' ?> ">
 			<label class="control-label" for="email">Email or Phone Number:</label>
 			<input class="required form-control" type="text" name="email" id="email" value="<?=$model['email']?>" placeholder="Email or Phone Number" />

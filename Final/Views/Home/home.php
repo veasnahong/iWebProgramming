@@ -4,31 +4,31 @@
 			margin-bottom: 10px;
 		}
 		#shopping-cart-list {
-			position: fixed;
-			right: 	0px;
-			top: 	20%;
-			bottom: 20%;
-			height: 60%;
-			width: 	200px;
+			position:fixed;
+			right: 	30%;
+			top: 	3%;
+			bottom: 10%;
+			height: 95%;
+			width: 	500px;
 			background: #FFFFFF;
-			border-radius: 5px 0px 0px 5px;
-			border: 1px solid #000;
-			padding: 5px;
+			border-radius: 5px 5px 5px 5px;		/*Rectangular Sharp - Round Corner*/
+			border: 1px solid #0000FF;
+			padding: 70px;
 			transition: right .5s;
 			-webkit-transition: right .5s;
 		}
 		.closed#shopping-cart-list {
-			right: -200px;
+			right: -550px;
 		}
 		#shopping-cart-list .scrolling {
 			overflow-y: scroll;
-			height: 95%;
-			border-bottom: 1px solid black;
+			height: 85%;
+			border-bottom: 1px solid blue;
 		}
 		#shopping-cart-list img {
-			float: left;
-			width: 30px;
-			height: 30px;
+			float: right;
+			width: 40px;
+			height: 40px;
 		}
 		.label-danger{ background-color: maroon; }
 		
@@ -62,25 +62,26 @@
 		  			<span class="glyphicon glyphicon-search form-control-feedback"></span>
 				</div></br></br></br>
 			</div>
+			
 			<div class="row" ng-controller="ItemListCtrl" >
-	
-				<div ng-repeat="item in items | filter:query" class=" col-md-4">
-					<div class="panel panel-info">
-						  <div class="panel-heading">
-							<code class="pull-right">${{item.Price}}</code>
-						    <h3 class="panel-title">
-						    	<a href="#/item/{{item.id}}">
-						    	{{item.Name}}				    		
-						    	</a>
-						    </h3>
-						  </div>
-						  <div class="panel-body">
-						  	<a class="btn btn-success">${{item.Price}}</a>
-								<img ng-src="{{item.Picture_Url}}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
-								<p>{{item.Description}}</p>
-								
-								<!-- <a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a> -->
-						  </div>
+				<!-- <div ng-repeat="item in items | filter:query"> -->
+				<div class="row" data-bind="foreach: categoryList">	 	<!-- Diplay all Products no categoty --> 
+					<div class=" col-md-4">
+						<div class="panel panel-info">
+							 <div class="panel-heading">
+								<code class="pull-right">${{item.Price}}</code>
+							    <h3 class="panel-title">
+							    	<a href="#/item/{{item.id}}">
+							    		{{item.Name}}				    		
+							    	</a>
+							    </h3>
+							 </div>
+							<div class="panel-body">
+								<img data-bind="attr: {src: Picture_Url}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
+								<p data-bind="text: Description"></p>
+								<a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a>
+						   </div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -138,7 +139,27 @@
 				</div>
 			</div>
 			<div>
-				Total: $ <span data-bind="text: cartTotal"></span>
+				Sub-Total: $ <span data-bind="text: subTotal"></span>
+			</div>
+			<div>
+				Tax: $ <span data-bind="text: Tax"></span>
+			</div></br>
+		
+			<div>
+				Total: $ <span data-bind="text: Total"></span>
+			</div></br>
+			
+			<div class="row">
+   				<div class="col-xs-6">
+					<a class="btn btn-success"  href="../Controllers/checkOut.php">Check Out</a>
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-success" data-bind="click: toggleCartList">
+					<i class="glyphicon glyphicon-shopping-cart"></i>
+					Continue Shopping
+					<span class="badge label-danger" data-bind="text: cart().length">0</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	
@@ -187,33 +208,57 @@
 							$("#shopping-cart-list").toggleClass("closed");
 						}
 					}
-					
-					vm.cartTotal = ko.computed(function(){
-							var tot = 0;
+					vm.subTotal = ko.computed(function(){
+							var subTot = 0;
 							$.each(vm.cart(), function(i,x){
-								tot += +x.Price;
+								subTot += +x.Price;
+								subTot = Math.round(subTot * 100) / 100
 							})
-							return tot;
+							return subTot;
 					});
+					
+					vm.Tax = ko.computed(function(){
+							
+							var subTotal = 0;
+							var tax = 0;
+							$.each(vm.cart(), function(i,x)
+							{
+								subTotal += + x.Price;
+								tax = (8.45 *subTotal)/100;
+								
+								tax = tax.toFixed(2);
+							})
+							return tax;
+					});
+					vm.Total = ko.computed(function(){
+							var total=0;
+							var subTotal = 0;
+							var tax = 0;
+							$.each(vm.cart(), function(i,x)
+							{
+								subTotal += + x.Price;
+								tax = (8.45 *subTotal)/100;
+								total = subTotal + tax;
+								
+								total = total.toFixed(2);
+							})
+							return total;
+					});
+					
 					ko.applyBindings(vm);
 					
 					$.get("?action=categories&format=json",null,null,'json')
 						.always(function (results) {
 							vm.categoryList(results.data);
 						})
-						
-					$(function(){
-				
-					});
 				});
-				
 			</script>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.min.js"></script>
-			<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.3/angular-route.js"></script>
+		<? } ?>
+		
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.15/angular.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.0-beta.3/angular-route.js"></script>
 			
 			<script src="../Content/js/controllers.js"></script>
 			<script src="../../Content/js/controllers.js"></script>
 			<script src="../../inc/header.php"></script>
-				
-		<? } ?>
 	

@@ -5,29 +5,29 @@
 		#shopping-cart-list {
 			position:fixed;
 			right: 	30%;
-			top: 	10%;
-			bottom: 20%;
-			height: 80%;
-			width: 	400px;
+			top: 	3%;
+			bottom: 10%;
+			height: 95%;
+			width: 	500px;
 			background: #FFFFFF;
-			border-radius: 5px 2px 2px 5px;
-			border: 1px solid #000;
+			border-radius: 5px 5px 5px 5px;		/*Rectangular Sharp - Round Corner*/
+			border: 1px solid #0000FF;
 			padding: 70px;
 			transition: right .5s;
 			-webkit-transition: right .5s;
 		}
 		.closed#shopping-cart-list {
-			right: -450px;
+			right: -550px;
 		}
 		#shopping-cart-list .scrolling {
 			overflow-y: scroll;
-			height: 95%;
-			border-bottom: 1px solid black;
+			height: 85%;
+			border-bottom: 1px solid blue;
 		}
 		#shopping-cart-list img {
 			float: left;
-			width: 30px;
-			height: 30px;
+			width: 85px;
+			height: 85px;
 		}
 		.label-danger{ background-color: maroon; }
 	</style>
@@ -62,9 +62,9 @@
 			<div class="scrolling"  data-bind="foreach: cart" >
 				<div class="well well-sm clearfix">
 					<img alt="item image" data-bind="attr: {src: Picture_Url}" />
-					<h6 data-bind="text: Name"></h6>
-					<p data-bind="text: Description"></p>
-					$<span data-bind="text: Price"></span>
+					<h6 data-bind=" text: Name"></h6>
+					$<span data-bind=" text: Price"></span>
+					<p data-bind=" text: Description"></p>
 					<button class="btn btn-warning btn-sm pull-right" data-bind="click: $root.removeFromCart">
 						<span class="glyphicon glyphicon-shopping-del"></span>
 						Remove Item
@@ -72,27 +72,45 @@
 				</div>
 			</div>
 			<div>
-				Sub-Total: $ <span data-bind="text: cartTotal"></span>
+				Sub-Total: $ <span data-bind="text: subTotal"></span>
 			</div>
 			<div>
-				Tax: $ <span data-bind="text: cartTotal"></span>
+				Tax: $ <span data-bind="text: Tax"></span>
+			</div></br>
+		
+			<div>
+				Total: $ <span data-bind="text: Total"></span>
+			</div></br>
+			
+			<div class="row">
+   				<div class="col-xs-6">
+					<a class="btn btn-success"  href="../Controllers/checkOut.php">Check Out</a>
+					<!-- <a href="../Controllers/index.php"><h1 class="glyphicon glyphicon-gift">y-$tore</a> -->
+				</div>
+				<div class="col-xs-6">
+					<button class="btn btn-success" data-bind="click: toggleCartList">
+					<i class="glyphicon glyphicon-shopping-cart"></i>
+					Continue Shopping
+					<span class="badge label-danger" data-bind="text: cart().length">0</span>
+					</button>
+				</div>
 			</div>
 		</div>
 	
-<!-- Shopping Cart -->
+		<!-- Shopping Cart -->
 
-	<script type="text/template" id="cart-tmpl">
-		<ul class="nav navbar-nav navbar-right ">
-			<li>
-				<button class="navbar-btn btn" data-bind="click: toggleCartList">
-					<i class="glyphicon glyphicon-shopping-cart"></i>
-					My Cart
-					<span class="badge label-danger" data-bind="text: cart().length">0</span>
-					</button>			
-			</li>
-			<li><a></a></li>
-		</ul>
-	</script>
+		<script type="text/template" id="cart-tmpl">
+			<ul class="nav navbar-nav navbar-right ">
+				<li>
+					<button class="navbar-btn btn" data-bind="click: toggleCartList">
+						<i class="glyphicon glyphicon-shopping-cart"></i>
+						My Cart
+						<span class="badge label-danger" data-bind="text: cart().length">0</span>
+						</button>			
+				</li>
+				<li><a></a></li>
+			</ul>
+		</script>
 	
 		<? function JavaScripts(){ ?>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
@@ -124,14 +142,48 @@
 							$("#shopping-cart-list").toggleClass("closed");
 						}
 					}
-					vm.cartTotal = ko.computed(function(){
-							var tot = 0;
+					
+					// ----------------------------Calculate for subTotal------------------------------
+					vm.subTotal = ko.computed(function(){
+							var subTot = 0;
 							$.each(vm.cart(), function(i,x){
-								tot += +x.Price;
-								// tot = tot + x.Price;
+								subTot += +x.Price;
+								subTot = Math.round(subTot * 100) / 100
 							})
-							return tot;
+							return subTot;
 					});
+					
+					// ----------------------------Calculate for Tax------------------------------
+					vm.Tax = ko.computed(function(){
+							
+							var subTotal = 0;
+							var tax = 0;
+							$.each(vm.cart(), function(i,x)
+							{
+								subTotal += + x.Price;
+								tax = (8.45 *subTotal)/100;
+								
+								tax = tax.toFixed(2);
+							})
+							return tax;
+					});
+					
+					// ----------------------------Calculate for Total------------------------------
+					vm.Total = ko.computed(function(){
+							var total=0;
+							var subTotal = 0;
+							var tax = 0;
+							$.each(vm.cart(), function(i,x)
+							{
+								subTotal += + x.Price;
+								tax = (8.45 *subTotal)/100;
+								total = subTotal + tax;
+								
+								total = total.toFixed(2);
+							})
+							return total;
+					});
+					
 					ko.applyBindings(vm);
 					
 					$.get("?action=categories&format=json",null,null,'json')

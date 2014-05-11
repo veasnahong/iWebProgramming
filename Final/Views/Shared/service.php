@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <!-- <link rel="shortcut icon" href="bootstrap/docs/assets/ico/favicon.ico"> -->
 
-    <title>Service</title>
+    <title>Services</title>
 
     <!-- Bootstrap core CSS -->
  	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -19,15 +19,15 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-    <div class="navbar-wrapper">
-      <div class="container">
-      	
-      	<? include '../inc/header.php';?> 	<!-- Header -->		
-        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
-            
-      	<? include '../inc/footer.php';?>		<!-- footer-->
-
-    </div><!-- /.container -->
+	   <div class="navbar-wrapper">
+	      <div class="container">
+	      	
+	      	<? include '../inc/header.php';?> 	<!-- Header -->		
+		    <? include '../inc/navUsers.php';?></br>		<!-- Navigation Menu Bar-->	   
+	      	<? include '../inc/footer.php';?>		<!-- footer-->
+	      	
+	    </div><!-- /.container -->
+	  </div><!-- /.wrapper -->
 
 
     <!-- Bootstrap core JavaScript

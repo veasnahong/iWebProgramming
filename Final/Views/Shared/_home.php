@@ -6,27 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Home</title>
+    <title>My $tore Welcome you!</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <style type="text/css">
-     .thumbnails img { min-height:100px; height:100px; }
-    </style>
-    
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">    
   </head>
 	<? include '../inc/tableStyle.php';?>
   <body>
   	
     <div class="navbar-wrapper">
-		    <div class="container">
-		      	<? include '../inc/header.php';?> 	<!-- Header -->		
-		        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
-	      		<? include $view; ?> <br/>			<!-- Display table-->
-	      		<? include '../inc/footer.php';?>		<!-- footer-->
-	   		 </div><!-- /.container -->
-	   	</div><!-- /. Wrapper -->
+	    <div class="container">
+	      	<? include '../inc/header.php';?> 	<!-- Header -->		
+	        <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	
+      		<? include $view; ?> <br/>			<!-- Display table-->
+      		<? include '../inc/footer.php';?>		<!-- footer-->
+   		 </div><!-- /.container -->
+	</div><!-- /. Wrapper -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
