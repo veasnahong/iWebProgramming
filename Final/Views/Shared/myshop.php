@@ -26,9 +26,13 @@
 	       	
 		         <!-- Main jumbotron for a primary marketing message or call to action -->
 			      <div class="jumbotron"></br></br>
-			        <h1>Today is Clearance</h1>
-			        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-			        <p><a href="#" class="btn btn-primary btn-lg" role="button">Learn more &raquo;</a></p>
+			        <h2>Admin Login: <small> to add, remove or modify database.</small></h2>
+			        <p> For test purposes: </br>
+			        	Admin: Please go to Services Tab and under "Return Customer"</br>
+			        	Login: Phone# 8452826677</br>
+			        		   Password: abc1234
+			       </p>
+			         <p><a href="../Controllers/service.php" class="btn btn-primary btn-lg" role="button" >Learn more &raquo;</a></p>
 			      </div>
 			      
 	      		<? include '../inc/footer.php';?>		<!-- footer-->	

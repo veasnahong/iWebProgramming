@@ -32,43 +32,11 @@
 				<? endforeach; ?>
 			</ul>
      <!-- -------------------------------------------------------------------------------------------     	 -->  	
-    		
-		 <form method="post"  class="my-horizontal col-sm-6">
-	      	<div class="modal-header" >
-	       		<h4 class="modal-title">Return Customer</h4>
-
-					<div class="form-group <?if(isset($errors['email'])) echo 'has-error has-feedback' ?> ">
-						<label class="control-label" for="email">Email or Phone Number:</label>
-						<input class="required form-control" type="text" name="email" id="email" value="<?=$model['email']?>" placeholder="Email or Phone Number" />
-						<? if(isset($errors['email'])): ?>
-							<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-							<span ><?=$errors['email']?></span>
-						<? endif ?>
-					</div>
-			
-					<div class="form-group <?if(isset($errors['password'])) echo 'has-error has-feedback' ?> ">
-						<label class="control-label" for="password">Password:</label>
-						<input class="required form-control" type="password" name="password" id="password" value="<?=$model['password']?>" placeholder="Password" />
-						<? if(isset($errors['password'])): ?>
-							<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-							<span ><?=$errors['password']?></span>
-						<? endif ?>
-					</div>
-					
-				
-					
-						<div class="form-group">
-							<label class="control-label"></label>
-							<input class="btn btn-primary" type="submit" value="Login" />
-							<a href="?" data-dismiss="modal">Cancel</a>
-				      </div>
-				  </div>  
-	      </form>
-		      
-		    <form method="post" class="my-horizontal col-sm-6" >
+    		      
+		    <form method="post" class="my-horizontal col-sm-14" >
 		     <div class="modal-header" >
 		        <!-- <a href="?" class="close" data-dismiss="modal" aria-hidden="true">&times;</a> -->
-		        <h4 class="modal-title">New Customer</h4>
+		        <h5 class="modal-title">Customer Information</h5>
 
 			    <div class="form-group">
 			    	
@@ -93,41 +61,54 @@
 								<span ><?=$errors['LastName']?></span>
 							<? endif ?>
 						</div>
-								<div class="form-group <?if(isset($errors['Username'])) echo 'has-error has-feedback' ?> ">
-								<label class="control-label" for="Username">Username:</label>
-								<input class="form-control" type="text" name="Username" id="LastName" value="<?=$model['Username']?>" placeholder="Username" />
 								
-								<? if(isset($errors['Username'])): ?>
-									<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-									<span ><?=$errors['Username']?></span>
+						<div class="form-group <?if(!empty($errors['Addresses'])) echo 'has-error has-feedback' ?> ">
+							<label for="Addresses">Address:</label>
+							<input class="form-control" type="text" name="Addresses" id="Addresses" value="<?=$model['Addresses']?>" placeholder="Addresses" />
+							
+							<? if(!empty($errors['Addresses'])): ?>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								<span><?=$errors['Addresses']?></span>
 							<? endif ?>
 						</div>
 						
-						<div class="form-group">
-							<label class="control-label" for="Password">Password:</label>
-							<input class="form-control" type="password" name="Password" id="Password" value="<?=$model['Password']?>" placeholder="Password" />
+						<div class="form-group <?if(!empty($errors['City'])) echo 'has-error has-feedback' ?> ">
+							<label for="City">City:</label>
+							<input class="form-control" type="text" name="City" id="City" value="<?=$model['City']?>" placeholder="City" />
+							
+							<? if(!empty($errors['City'])): ?>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								<span><?=$errors['City']?></span>
+							<? endif ?>
 						</div>
 						
-						<div class="form-group">
-							<label class="control-label" for="fbid">Facebook ID:</label>
-							<input class="form-control" type="text" name="fbid" id="fbid" value="<?=$model['fbid']?>" placeholder="Facebook ID" />
-						</div>
-					
-						<div class="form-group <?if(isset($errors['UserType'])) echo 'has-error has-feedback' ?> ">
-							<label class="control-label" for="UserType">User Type:</label>
+						<div class="form-group <?if(!empty($errors['State'])) echo 'has-error has-feedback' ?> ">
+							<label for="State">State:</label>
+							<input class="form-control" type="text" name="State" id="State" value="<?=$model['State']?>" placeholder="State" />
 							
-							<select size="1" class="required form-control" name="UserType" id="UserType" value="<?=$model['UserType']?>">
-								<option value="">--User Type--</option>
-								<? foreach (Keywords::SelectListFor(2) as $row): ?>
-									<option <?if($row['id'] == $model['UserType']) echo 'selected'; ?> value="<?=$row['id']?>">
-										<?=$row['Name']?>
-									</option>
-								<? endforeach; ?>
-							</select>
-							
-							<? if(isset($errors['UserType'])): ?>
+							<? if(!empty($errors['State'])): ?>
 								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
-								<span ><?=$errors['UserType']?></span>
+								<span><?=$errors['State']?></span>
+							<? endif ?>
+						</div>
+						
+						<div class="form-group <?if(!empty($errors['Zip'])) echo 'has-error has-feedback' ?> ">
+							<label for="Zip">Zip:</label>
+							<input class="form-control" type="text" name="Zip" id="Zip" value="<?=$model['Zip']?>" placeholder="Zip" />
+							
+							<? if(!empty($errors['Zip'])): ?>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								<span><?=$errors['Zip']?></span>
+							<? endif ?>
+						</div>
+						
+						<div class="form-group <?if(!empty($errors['Country'])) echo 'has-error has-feedback' ?> ">
+							<label for="Country">Country:</label>
+							<input class="form-control" type="text" name="Country" id="Country" value="<?=$model['Country']?>" placeholder="Country" />
+							
+							<? if(!empty($errors['Country'])): ?>
+								<span class="glyphicon glyphicon-remove form-control-feedback"></span>
+								<span><?=$errors['Country']?></span>
 							<? endif ?>
 						</div>
 						
@@ -135,7 +116,9 @@
 						
 						<div class="form-group">
 							<label class="control-label"></label>
-							<input class="btn btn-primary" type="submit" value="Submit" />
+							<input class="btn btn-success" type="submit" value="CheckOut" />
+							<input class="btn btn-primary" type="submit" value="Continue Shopping" />
+							 <!-- <p><a href="../Controllers/index.php" class="btn btn-primary btn-lg" role="button" >Learn more &raquo;</a></p> -->
 							<a href="?" data-dismiss="modal">Cancel</a>
 					 </div></br>
 							
