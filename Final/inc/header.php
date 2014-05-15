@@ -21,6 +21,6 @@
 				<a href="../Controllers/deals.php"><h4>Save up to $150 <small>on select iPad and Apple products</small></h4></a>
 			</div>
 		</header>
-		
+		<div class="pull-right"> <small>Contact Us: 1(800)765-4321</small></div>
 		</div>
 	</body>

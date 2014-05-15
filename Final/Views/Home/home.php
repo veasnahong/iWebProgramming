@@ -62,32 +62,37 @@
 		  			<span class="glyphicon glyphicon-search form-control-feedback"></span>
 				</div></br></br></br>
 			</div>
-			
+		
+		<!-- Display all items -->
+		
 			<div class="row" ng-controller="ItemListCtrl" >
-				<!-- <div ng-repeat="item in items | filter:query"> -->
-				<div class="row" data-bind="foreach: categoryList">	 	<!-- Diplay all Products no categoty --> 
+				<div ng-repeat="item in items | filter:query">
+				<!-- <div data-bind="foreach: categoryList"> -->	<!-- Diplay all Products no categoty --> 	
 					<div class=" col-md-4">
 						<div class="panel panel-info">
-							 <div class="panel-heading">
-								<code class="pull-right">${{item.Price}}</code>
-							    <h3 class="panel-title">
-							    	<a href="#/item/{{item.id}}">
-							    		{{item.Name}}				    		
-							    	</a>
-							    </h3>
-							 </div>
-							<div class="panel-body">
-								<img data-bind="attr: {src: Picture_Url}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
-								<p data-bind="text: Description"></p>
-								<a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a>
-						   </div>
+						  <div class="panel-heading">
+							<code class="pull-right">${{item.Price}}</code>
+						    <h3 class="panel-title">
+						    	<a href="#/item/{{item.id}}">
+						    	{{item.Name}}				    		
+						    	</a>
+						    </h3>
+						  </div>
+						  <div class="panel-body">
+								<img ng-src="{{item.Picture_Url}}" class="img-thumbnail pull-right" alt="140x140" style="width: 140px; height: 140px;" >
+								<p>{{item.Description}}</p>
+								<a class="btn btn-success">Purchase</a>
+								<!-- <a class="btn btn-success" data-bind="click: $root.addToCart">Purchase</a> -->
+						  </div>
 						</div>
 					</div>
 				</div>
 			</div>
+			
 		</script>
 			
 		<!-- Details each item selected and zoom item-->
+		
 		<script type="text/ng-template" id="details">
 			<div class="panel panel-info">
 				  <div class="panel-heading">

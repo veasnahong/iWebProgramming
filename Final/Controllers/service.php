@@ -5,7 +5,8 @@
 	@$view = $action = $_REQUEST['action'];
 	@$format = $_REQUEST['format'];
 
-	Accounts::RequireLogin();			// Require User Login			
+	Accounts::RequireLogin();			// Require User Login	
+			
 	switch ($action){
 		case 'new':
 			$view = 'edit';

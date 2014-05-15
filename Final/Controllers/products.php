@@ -50,8 +50,6 @@
 			}
 			break;
 		default:									// Controller identify whether Admin or Public
-		// $model = Products::Get();
-		// if($view == null) $view = 'home';
 		
 			if($view == null)
 			{

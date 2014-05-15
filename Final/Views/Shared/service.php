@@ -23,7 +23,7 @@
 	      <div class="container">
 	      	
 	      	<? include '../inc/header.php';?> 	<!-- Header -->		
-		    <? include '../inc/navUsers.php';?></br>		<!-- Navigation Menu Bar-->	   
+		    <? include '../inc/navUsers.php';?>		<!-- Navigation Menu Bar-->	   
 	      	<? include '../inc/footer.php';?>		<!-- footer-->
 	      	
 	    </div><!-- /.container -->

@@ -1,46 +1,65 @@
 <?php
-	error_reporting (E_ALL);
-	ini_set("display_errors", 1);
 	include_once __DIR__ . '/../inc/functions.php';
 	include_once __DIR__ . '/../inc/allModels.php';
 
-	@$view 		= $action = $_REQUEST['action'];
-	@$format 	= $_REQUEST['format'];
+	@$view = $action = $_REQUEST['action'];
+	@$format = $_REQUEST['format'];
+
+	Accounts::RequireLogin();			// Require User Login			
 	
-	if(isset($_REQUEST['access_token']))      // Facebook Login
-	{	
-		$returnUrl = !empty($_SESSION['returnUrl']) ? $_SESSION['returnUrl'] : '../Home/';
-		header("Location: $returnUrl");
-		die();
-	}
-	switch ($action)
-	{
-		default:						// Login
-		$view = 'login';
-		$errors = array();
-		if(isset($_REQUEST['returnUrl']))				// Check if login return URL return session
-			$_SESSION['returnUrl'] = $_REQUEST['returnUrl'];
-		if(!isset($_SESSION['returnUrl']) && isset($_SERVER['HTTP_REFERER']))	// If there is no return URL
-			$_SESSION['returnUrl'] = $_SERVER['HTTP_REFERER'];
-
-		//print_r($_REQUEST);	
-		if(isset($_POST['email']))
-		{
-			$model = $_REQUEST;
-			$errors = CheckOut::DoLogin($_POST['email'], $_POST['password']);	// if there is an error save user's email to avoid retype
-
-			if(!$errors)		// If there is an error send user to home page
+	switch ($action){
+		case 'new':
+			$view = 'edit';
+			break;
+		case 'edit':
+			$model = CheckOut::Get($_REQUEST['id']);
+			break;
+		case 'save':
+			$sub_action = empty($_REQUEST['id']) ? 'created' : 'updated';
+			//$errors = Users::Validate($_REQUEST);
+			if(!$errors){
+				$errors = CheckOut::Save($_REQUEST);
+			}
+			if(!$errors)
 			{
-				$returnUrl = !empty($_SESSION['returnUrl']) ? $_SESSION['returnUrl'] : '../Home/';
-				header("Location: $returnUrl");
+				header("Location: ?sub_action=$sub_action&id=$_REQUEST[id]");
 				die();
 			}
-		}
-		else
-		{
-			$model = array('email'=>null, 'password'=>null);	// If there is an error follow below code
-		}
+			else
+			{
+				//print_r($errors);
+				$model = $_REQUEST;
+				$view = 'checkOut';
+
+			}
+			break;
+		case 'delete':
+			if($_SERVER['REQUEST_METHOD'] == 'GET'){
+				//Promt
+				$model = CheckOut::Get($_REQUEST['id']);
+			}else{
+				$errors = CheckOut::Delete($_REQUEST['id']);
+			}
+			break;
+		default:
+			// $model = CheckOut::Get();
+			// if($view == null) $view = 'checkOut';
+			$view = 'checkOut';				// Display Products
+				$model = CheckOut::Get();
+				
+			if($view == null)
+			{
+				// For Andmin display
+				$view = 'checkOut';				// Display Products
+				$model = CheckOut::Get();
+			}	
+			else
+			{
+				$view = 'checkOut';
+				$model = CheckOut::Get();
+			}
 	}
+
 	switch ($format) {
 		case 'json':
 			$ret = array('success' => empty($errors), 'errors'=> $errors, 'data'=> $model);
