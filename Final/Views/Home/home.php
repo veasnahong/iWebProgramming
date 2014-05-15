@@ -56,6 +56,7 @@
 		<div ng-app="homepageApp">
 		<div ng-view></div>
 		<script type="text/ng-template" id="list">
+			
 			<div class="row">
 				<div class="col-sm-offset-4 col-sm-4 has-feedback" id="search">
 					<input ng-model="query" type="search" class="form-control" placeholder="Search">			
