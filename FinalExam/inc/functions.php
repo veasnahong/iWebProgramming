@@ -1,10 +1,11 @@
 	<?php
-
+	
 		function GetConnection()
 		{
-			// Create connection to Prof. plotkinm
+		
+			// Create connection
 			$conn = mysqli_connect('localhost', 'plotkinm', 'FaceBooK', 'plotkinm_db');
-			
+		
 			echo (mysqli_connect_error($conn));
 			return $conn;
 			 
@@ -24,4 +25,11 @@
 			
 			return $arr;
 		}
-		
+		function escape_all($row, $conn){
+			$row2 = array();
+			foreach ($row as $key => $value) 
+			{
+				$row2[$key] = $conn->real_escape_string($value);
+			}
+			return $row2;
+		}
