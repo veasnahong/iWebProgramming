@@ -23,18 +23,40 @@
 			<div>
 				<p>	</p>
 			</div>
+			 <? include '../inc/navUsers.php';?>	
+			 
 		      <div class="jumbotron">
-		        
-		        
-			    <div class="col-sm-offset-4 col-sm-14 has-feedback" id="search">
+			    <form class="col-sm-offset-4 col-sm-14 has-feedback" id="search">
 			    	<h5>Enter your search</h5>
-					<input ng-model="query" type="search" class="form-control" placeholder="Search">			
+					<input type="text" class="form-control" placeholder="Enter Search City" name="city" id="city">			
 		  			<span class="btn btn-sm btn-default glyphicon glyphicon-search form-control-feedback"></span>
-				</div>
-				
-		     </div>
+				</form> 
+   			</div>
 	 	</div>
 	 </div>
-		      
+		 
+	<? function JavaScripts(){ ?>
+		
+	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout/3.0.0/knockout-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.2/typeahead.bundle.min.js"></script>
+	
+		<script type="text/javascript">
+			$(function(){
+				
+				$("#city").typeahead(null,{
+					displayKey: 'city',
+					source: function(query, cb){
+						$.get("./Final_AutoSearch.php?action=search&format=json&q=" + query, null,null,'json')
+							.always(function(data){
+								cb(data.data);
+							})
+						}
+				});
+				
+				// $(".navbar-collapse").append($("#cart-tmpl").html())		
+				
+		</script>
+	<? } ?>     
   </body>
 </html>
